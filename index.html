@@ -1,1410 +1,932 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-html {
-    scroll-behavior: smooth;
-}
+    <title>NovaSMP PvP Shop</title>
 
-body {
-    background: #050507;
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
-}
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+    <link rel="stylesheet" href="style.css">
+</head>
 
-button,
-select,
-input {
-    font: inherit;
-}
+<body>
 
+<!-- ================= TOP BAR ================= -->
 
-/* TOP BAR */
+<div class="topbar">
+    <span>
+        <i class="fa-solid fa-bolt"></i>
+        NOVASMP SUMMER SALE — UP TO 50% OFF
+    </span>
 
-.topbar {
-    min-height: 34px;
-    padding: 0 5%;
+    <span>
+        <i class="fa-solid fa-circle"></i>
+        SERVER ONLINE
+    </span>
+</div>
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    background: #12051c;
+<!-- ================= NAVBAR ================= -->
 
-    border-bottom: 1px solid #2c123d;
+<header class="navbar">
 
-    color: #c9a9da;
+    <a href="#" class="brand">
+        <div class="brand-icon">
+            <i class="fa-solid fa-swords"></i>
+        </div>
 
-    font-size: 11px;
-    font-weight: 800;
+        <div>
+            <b>NOVA<span>SMP</span></b>
+            <small>PVP SHOP</small>
+        </div>
+    </a>
 
-    letter-spacing: .5px;
-}
 
-.topbar i {
-    color: #b938ff;
-}
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#shop">SHOP</a>
+        <a href="#ranks">RANKS</a>
+        <a href="#crates">CRATES</a>
+        <a href="#about">ABOUT</a>
+    </nav>
 
-.topbar span:last-child i {
-    color: #00e878;
-    font-size: 7px;
-}
 
+    <div class="nav-actions">
 
-/* NAVBAR */
+        <button class="icon-btn" onclick="openSearch()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
 
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+        <button class="cart-btn" onclick="openCart()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cartCount">0</span>
+        </button>
 
-    min-height: 78px;
+    </div>
 
-    padding: 0 5%;
+</header>
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    background: rgba(5, 5, 7, .96);
+<!-- ================= SEARCH ================= -->
 
-    border-bottom: 1px solid #211728;
+<div id="searchBox" class="search-overlay">
 
-    backdrop-filter: blur(15px);
-}
+    <div class="search-inner">
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-}
+        <button onclick="closeSearch()" class="close-search">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
 
-.brand-icon {
-    width: 43px;
-    height: 43px;
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search ranks, crates, keys, coins..."
+            oninput="searchProducts()"
+        >
 
-    display: grid;
-    place-items: center;
+        <i class="fa-solid fa-magnifying-glass"></i>
 
-    border-radius: 9px;
+    </div>
 
-    background: linear-gradient(135deg, #a52cff, #48106c);
+</div>
 
-    box-shadow: 0 0 25px rgba(166, 43, 255, .25);
 
-    font-size: 20px;
-}
+<!-- ================= HERO ================= -->
 
-.brand b {
-    display: block;
-    font-size: 20px;
-    letter-spacing: 1px;
-}
+<section id="home" class="shop-hero">
 
-.brand b span {
-    color: #ad36ff;
-}
+    <div class="hero-content">
 
-.brand small {
-    display: block;
-    margin-top: 2px;
+        <div class="hero-badge">
+            <i class="fa-solid fa-crown"></i>
+            OFFICIAL NOVASMP STORE
+        </div>
 
-    color: #777;
+        <h1>
+            DOMINATE
+            <span>THE BATTLEFIELD</span>
+        </h1>
 
-    font-size: 8px;
-    letter-spacing: 3px;
-}
+        <p>
+            Upgrade your Minecraft PvP experience with exclusive
+            ranks, crates, keys, coins, kits and cosmetics.
+        </p>
 
-nav {
-    display: flex;
-    gap: 27px;
-}
 
-nav a {
-    color: #aaa;
+        <div class="hero-buttons">
 
-    font-size: 11px;
-    font-weight: 900;
+            <a href="#shop" class="primary-btn">
+                SHOP NOW
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
 
-    transition: .25s;
-}
+            <button onclick="copyIP()" class="secondary-btn">
+                <i class="fa-solid fa-gamepad"></i>
+                COPY SERVER IP
+            </button>
 
-nav a:hover {
-    color: #b438ff;
-}
+        </div>
 
-.nav-actions {
-    display: flex;
-    gap: 9px;
-}
 
-.icon-btn,
-.cart-btn {
-    position: relative;
+        <div class="hero-stats">
 
-    width: 42px;
-    height: 42px;
+            <div>
+                <b>24/7</b>
+                <small>ONLINE</small>
+            </div>
 
-    border: 1px solid #30243a;
-    border-radius: 8px;
+            <div>
+                <b>1.21.x</b>
+                <small>VERSION</small>
+            </div>
 
-    background: #0d0b10;
+            <div>
+                <b>99.9%</b>
+                <small>UPTIME</small>
+            </div>
 
-    color: #ccc;
+        </div>
 
-    cursor: pointer;
+    </div>
 
-    transition: .25s;
-}
 
-.icon-btn:hover,
-.cart-btn:hover {
-    color: #fff;
-    border-color: #a42fff;
-}
+    <div class="hero-art">
 
-.cart-btn span {
-    position: absolute;
+        <div class="glow"></div>
 
-    top: -7px;
-    right: -7px;
+        <div class="floating-card card-one">
+            <i class="fa-solid fa-gem"></i>
+            <b>LEGEND</b>
+            <small>TOP RANK</small>
+        </div>
 
-    min-width: 19px;
-    height: 19px;
+        <div class="floating-card card-two">
+            <i class="fa-solid fa-key"></i>
+            <b>CRATE KEY</b>
+            <small>RARE LOOT</small>
+        </div>
 
-    display: grid;
-    place-items: center;
+        <div class="sword">
+            <i class="fa-solid fa-khanda"></i>
+        </div>
 
-    border-radius: 50%;
+    </div>
 
-    background: #a72fff;
+</section>
 
-    color: #fff;
 
-    font-size: 10px;
-    font-weight: bold;
-}
+<!-- ================= CATEGORIES ================= -->
 
+<section class="categories">
 
-/* SEARCH */
+    <button class="category active" onclick="filterProducts('all', this)">
+        <i class="fa-solid fa-layer-group"></i>
+        ALL
+    </button>
 
-.search-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
+    <button class="category" onclick="filterProducts('rank', this)">
+        <i class="fa-solid fa-crown"></i>
+        RANKS
+    </button>
 
-    display: none;
-    align-items: flex-start;
-    justify-content: center;
+    <button class="category" onclick="filterProducts('crate', this)">
+        <i class="fa-solid fa-box-open"></i>
+        CRATES
+    </button>
 
-    padding-top: 130px;
+    <button class="category" onclick="filterProducts('key', this)">
+        <i class="fa-solid fa-key"></i>
+        KEYS
+    </button>
 
-    background: rgba(0,0,0,.86);
+    <button class="category" onclick="filterProducts('coin', this)">
+        <i class="fa-solid fa-coins"></i>
+        COINS
+    </button>
 
-    backdrop-filter: blur(10px);
-}
+    <button class="category" onclick="filterProducts('kit', this)">
+        <i class="fa-solid fa-shield-halved"></i>
+        KITS
+    </button>
 
-.search-overlay.show {
-    display: flex;
-}
+    <button class="category" onclick="filterProducts('cosmetic', this)">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        COSMETICS
+    </button>
 
-.search-inner {
-    position: relative;
+</section>
 
-    width: min(700px, 90%);
-}
 
-.search-inner input {
-    width: 100%;
+<!-- ================= SHOP ================= -->
 
-    padding: 20px 55px 20px 22px;
+<section id="shop" class="shop-section">
 
-    outline: none;
+    <div class="section-heading">
 
-    border: 1px solid #7e27b9;
-    border-radius: 10px;
+        <div>
+            <span>OFFICIAL STORE</span>
 
-    background: #100c14;
+            <h2>
+                CHOOSE YOUR
+                <strong>UPGRADE</strong>
+            </h2>
+        </div>
 
-    color: white;
+        <div class="sort-box">
 
-    font-size: 16px;
-}
+            <select id="sortSelect" onchange="sortProducts()">
+                <option value="default">Featured</option>
+                <option value="low">Price: Low → High</option>
+                <option value="high">Price: High → Low</option>
+            </select>
 
-.search-inner > i {
-    position: absolute;
+        </div>
 
-    right: 22px;
-    top: 22px;
+    </div>
 
-    color: #a936ff;
-}
 
-.close-search {
-    position: absolute;
+    <div id="productGrid" class="product-grid">
 
-    right: -10px;
-    top: -55px;
 
-    width: 38px;
-    height: 38px;
+        <!-- KNIGHT -->
 
-    border: 1px solid #392441;
-    border-radius: 50%;
+        <article class="product" data-category="rank" data-price="99">
 
-    background: #110d15;
+            <div class="product-image rank-blue">
+                <div class="product-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
 
-    color: white;
+                <span class="product-tag">
+                    STARTER
+                </span>
+            </div>
 
-    cursor: pointer;
-}
+            <div class="product-body">
 
+                <small>RANK</small>
 
-/* HERO */
+                <h3>KNIGHT</h3>
 
-.shop-hero {
-    min-height: 650px;
+                <p>
+                    Perfect entry-level PvP rank with useful perks.
+                </p>
 
-    padding: 80px 7%;
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Rank prefix</li>
+                    <li><i class="fa-solid fa-check"></i> Extra kits</li>
+                    <li><i class="fa-solid fa-check"></i> Cosmetic perks</li>
+                </ul>
 
-    display: grid;
-    grid-template-columns: 1.05fr .95fr;
+                <div class="product-bottom">
 
-    align-items: center;
+                    <b>₹99</b>
 
-    background:
-        linear-gradient(90deg,
-            #050507 5%,
-            rgba(7,3,11,.94) 45%,
-            rgba(20,5,31,.72)),
-        url("https://images.unsplash.com/photo-1603481546238-487240415921?auto=format&fit=crop&w=2200&q=85");
+                    <button onclick="addToCart('Knight Rank', 99)">
+                        ADD
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
 
-    background-size: cover;
-    background-position: center;
+                </div>
 
-    overflow: hidden;
-}
+            </div>
 
-.hero-content {
-    max-width: 700px;
-}
+        </article>
 
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
 
-    padding: 9px 14px;
+        <!-- WARRIOR -->
 
-    border: 1px solid #7130a0;
-    border-radius: 5px;
+        <article class="product featured" data-category="rank" data-price="249">
 
-    background: rgba(113, 25, 165, .12);
+            <div class="product-image rank-red">
 
-    color: #c66aff;
+                <div class="popular">
+                    <i class="fa-solid fa-fire"></i>
+                    POPULAR
+                </div>
 
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
+                <div class="product-icon">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
 
-.shop-hero h1 {
-    margin-top: 20px;
+            </div>
 
-    font-size: clamp(55px, 7vw, 105px);
+            <div class="product-body">
 
-    line-height: .9;
+                <small>RANK</small>
 
-    font-weight: 1000;
+                <h3>WARRIOR</h3>
 
-    letter-spacing: -5px;
+                <p>
+                    Powerful PvP perks for serious fighters.
+                </p>
 
-    text-shadow: 0 0 35px rgba(169, 45, 255, .2);
-}
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Warrior prefix</li>
+                    <li><i class="fa-solid fa-check"></i> Special kits</li>
+                    <li><i class="fa-solid fa-check"></i> More commands</li>
+                </ul>
 
-.shop-hero h1 span {
-    display: block;
+                <div class="product-bottom">
 
-    color: #a933ff;
+                    <b>₹249</b>
 
-    text-shadow: 0 0 30px rgba(169, 45, 255, .5);
-}
+                    <button onclick="addToCart('Warrior Rank', 249)">
+                        ADD
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
 
-.hero-content > p {
-    max-width: 600px;
+                </div>
 
-    margin-top: 25px;
+            </div>
 
-    color: #9b979f;
+        </article>
 
-    line-height: 1.7;
 
-    font-size: 15px;
-}
+        <!-- CHAMPION -->
 
-.hero-buttons {
-    display: flex;
-    gap: 12px;
+        <article class="product" data-category="rank" data-price="499">
 
-    margin-top: 30px;
-}
+            <div class="product-image rank-gold">
 
-.primary-btn,
-.secondary-btn {
-    padding: 15px 21px;
+                <div class="product-icon">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+                <span class="product-tag">
+                    ELITE
+                </span>
 
-    gap: 9px;
+            </div>
 
-    border-radius: 7px;
+            <div class="product-body">
 
-    font-size: 12px;
-    font-weight: 900;
+                <small>RANK</small>
 
-    cursor: pointer;
+                <h3>CHAMPION</h3>
 
-    transition: .3s;
-}
+                <p>
+                    Elite rank for players who want more power.
+                </p>
 
-.primary-btn {
-    background: linear-gradient(135deg, #a52cff, #7114b2);
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Champion prefix</li>
+                    <li><i class="fa-solid fa-check"></i> Exclusive kits</li>
+                    <li><i class="fa-solid fa-check"></i> Premium commands</li>
+                </ul>
 
-    box-shadow: 0 0 30px rgba(164, 43, 255, .22);
-}
+                <div class="product-bottom">
 
-.secondary-btn {
-    border: 1px solid #3a2b45;
+                    <b>₹499</b>
 
-    background: #0d0b10;
+                    <button onclick="addToCart('Champion Rank', 499)">
+                        ADD
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
 
-    color: #ddd;
-}
+                </div>
 
-.primary-btn:hover,
-.secondary-btn:hover {
-    transform: translateY(-3px);
-}
+            </div>
 
-.hero-stats {
-    display: flex;
-    gap: 35px;
+        </article>
 
-    margin-top: 40px;
-}
 
-.hero-stats div {
-    padding-left: 15px;
+        <!-- LEGEND -->
 
-    border-left: 2px solid #8f2bd0;
-}
+        <article class="product" data-category="rank" data-price="999">
 
-.hero-stats b {
-    display: block;
+            <div class="product-image rank-purple">
 
-    font-size: 22px;
-}
+                <div class="product-icon">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
 
-.hero-stats small {
-    color: #777;
+                <span class="product-tag">
+                    LEGENDARY
+                </span>
 
-    font-size: 9px;
-    letter-spacing: 2px;
-}
+            </div>
 
+            <div class="product-body">
 
-/* HERO ART */
+                <small>RANK</small>
 
-.hero-art {
-    position: relative;
+                <h3>LEGEND</h3>
 
-    min-height: 470px;
+                <p>
+                    Ultimate rank packed with premium perks.
+                </p>
 
-    display: grid;
-    place-items: center;
-}
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Legend prefix</li>
+                    <li><i class="fa-solid fa-check"></i> All premium kits</li>
+                    <li><i class="fa-solid fa-check"></i> Exclusive cosmetics</li>
+                </ul>
 
-.glow {
-    position: absolute;
+                <div class="product-bottom">
 
-    width: 380px;
-    height: 380px;
+                    <b>₹999</b>
 
-    border-radius: 50%;
+                    <button onclick="addToCart('Legend Rank', 999)">
+                        ADD
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
 
-    background: #8f20d6;
+                </div>
 
-    filter: blur(120px);
+            </div>
 
-    opacity: .2;
-}
+        </article>
 
-.sword {
-    position: relative;
-    z-index: 2;
 
-    width: 230px;
-    height: 230px;
+        <!-- OVERLORD -->
 
-    display: grid;
-    place-items: center;
+        <article class="product" data-category="rank" data-price="1499">
 
-    border-radius: 50%;
+            <div class="product-image rank-dark">
 
-    background:
-        radial-gradient(circle,
-            rgba(181,57,255,.28),
-            transparent 65%);
+                <div class="product-icon">
+                    <i class="fa-solid fa-skull"></i>
+                </div>
 
-    color: #dca2ff;
+                <span class="product-tag">
+                    ULTIMATE
+                </span>
 
-    font-size: 150px;
+            </div>
 
-    transform: rotate(-20deg);
+            <div class="product-body">
 
-    filter:
-        drop-shadow(0 0 25px #a12de8);
-}
+                <small>RANK</small>
 
-.floating-card {
-    position: absolute;
-    z-index: 3;
+                <h3>OVERLORD</h3>
 
-    min-width: 155px;
+                <p>
+                    Rule the battlefield with the ultimate rank.
+                </p>
 
-    padding: 13px;
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Overlord prefix</li>
+                    <li><i class="fa-solid fa-check"></i> All kits</li>
+                    <li><i class="fa-solid fa-check"></i> Ultimate cosmetics</li>
+                </ul>
 
-    display: grid;
-    grid-template-columns: 35px 1fr;
-    column-gap: 9px;
+                <div class="product-bottom">
 
-    background: rgba(14,10,18,.92);
+                    <b>₹1499</b>
 
-    border: 1px solid #492b5c;
+                    <button onclick="addToCart('Overlord Rank', 1499)">
+                        ADD
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
 
-    border-radius: 9px;
+                </div>
 
-    box-shadow: 0 15px 40px rgba(0,0,0,.45);
+            </div>
 
-    backdrop-filter: blur(10px);
-}
+        </article>
 
-.floating-card i {
-    grid-row: span 2;
 
-    display: grid;
-    place-items: center;
+        <!-- CRATE -->
 
-    color: #c35cff;
+        <article class="product" data-category="crate" data-price="199">
 
-    font-size: 22px;
-}
+            <div class="product-image crate-red">
 
-.floating-card b {
-    font-size: 11px;
-}
+                <div class="product-icon">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
 
-.floating-card small {
-    color: #777;
-    font-size: 8px;
-}
+            </div>
 
-.card-one {
-    top: 70px;
-    right: 20px;
-}
+            <div class="product-body">
 
-.card-two {
-    bottom: 75px;
-    left: 20px;
-}
+                <small>CRATE</small>
 
+                <h3>WARRIOR CRATE</h3>
 
-/* CATEGORIES */
+                <p>
+                    Open the crate and discover powerful rewards.
+                </p>
 
-.categories {
-    padding: 20px 6%;
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Random rewards</li>
+                    <li><i class="fa-solid fa-check"></i> Rare items</li>
+                    <li><i class="fa-solid fa-check"></i> PvP rewards</li>
+                </ul>
 
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+                <div class="product-bottom">
 
-    background: #09070c;
+                    <b>₹199</b>
 
-    border-top: 1px solid #211528;
-    border-bottom: 1px solid #211528;
-}
+                    <button onclick="addToCart('Warrior Crate', 199)">
+                        ADD
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
 
-.category {
-    padding: 12px 17px;
+                </div>
 
-    display: flex;
-    align-items: center;
-    gap: 8px;
+            </div>
 
-    border: 1px solid #2d2334;
-    border-radius: 6px;
+        </article>
 
-    background: #0d0b10;
 
-    color: #888;
+        <!-- KEYS -->
 
-    font-size: 10px;
-    font-weight: 900;
+        <article class="product" data-category="key" data-price="49">
 
-    cursor: pointer;
+            <div class="product-image key-purple">
 
-    transition: .25s;
-}
+                <div class="product-icon">
+                    <i class="fa-solid fa-key"></i>
+                </div>
 
-.category:hover,
-.category.active {
-    background: #7c20ae;
+            </div>
 
-    border-color: #b33cff;
+            <div class="product-body">
 
-    color: #fff;
-}
+                <small>KEY</small>
 
+                <h3>LEGEND KEY</h3>
 
-/* SHOP */
+                <p>
+                    Unlock legendary crate rewards.
+                </p>
 
-.shop-section {
-    padding: 90px 6%;
-}
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> 1 crate key</li>
+                    <li><i class="fa-solid fa-check"></i> Rare loot chance</li>
+                    <li><i class="fa-solid fa-check"></i> Instant delivery</li>
+                </ul>
 
-.section-heading {
-    max-width: 1250px;
+                <div class="product-bottom">
 
-    margin: 0 auto 40px;
+                    <b>₹49</b>
 
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 20px;
-}
+                    <button onclick="addToCart('Legend Key', 49)">
+                        ADD
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
 
-.section-heading > div:first-child > span,
-.community span,
-.center > span {
-    color: #a938e8;
+                </div>
 
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
+            </div>
 
-.section-heading h2 {
-    margin-top: 8px;
+        </article>
 
-    font-size: 38px;
-}
 
-.section-heading strong {
-    color: #a938e8;
-}
+        <!-- COINS -->
 
-.sort-box select {
-    padding: 12px 35px 12px 14px;
+        <article class="product" data-category="coin" data-price="99">
 
-    border: 1px solid #302539;
-    border-radius: 6px;
+            <div class="product-image coin-gold">
 
-    background: #0d0b10;
+                <div class="product-icon">
+                    <i class="fa-solid fa-coins"></i>
+                </div>
 
-    color: #bbb;
+            </div>
 
-    outline: none;
-}
+            <div class="product-body">
 
-.product-grid {
-    max-width: 1250px;
+                <small>COINS</small>
 
-    margin: auto;
+                <h3>10,000 COINS</h3>
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+                <p>
+                    Use coins for items, upgrades and server features.
+                </p>
 
-    gap: 20px;
-}
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> 10,000 coins</li>
+                    <li><i class="fa-solid fa-check"></i> Instant credit</li>
+                    <li><i class="fa-solid fa-check"></i> No expiry</li>
+                </ul>
 
-.product {
-    overflow: hidden;
+                <div class="product-bottom">
 
-    background: #0d0b10;
+                    <b>₹99</b>
 
-    border: 1px solid #261c2e;
+                    <button onclick="addToCart('10,000 Coins', 99)">
+                        ADD
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
 
-    border-radius: 10px;
+                </div>
 
-    transition: .3s;
-}
+            </div>
 
-.product:hover {
-    transform: translateY(-7px);
+        </article>
 
-    border-color: #9631cf;
 
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.4),
-        0 0 30px rgba(151, 45, 209, .1);
-}
+        <!-- KIT -->
 
-.product.hidden {
-    display: none;
-}
+        <article class="product" data-category="kit" data-price="149">
 
-.product-image {
-    position: relative;
+            <div class="product-image kit-red">
 
-    height: 190px;
+                <div class="product-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
 
-    display: grid;
-    place-items: center;
+            </div>
 
-    overflow: hidden;
-}
+            <div class="product-body">
 
-.product-image::after {
-    content: "";
+                <small>PVP KIT</small>
 
-    position: absolute;
-    inset: 0;
+                <h3>BERSERKER KIT</h3>
 
-    background:
-        linear-gradient(
-            135deg,
-            transparent,
-            rgba(255,255,255,.04)
-        );
-}
+                <p>
+                    Enter battle with a powerful PvP loadout.
+                </p>
 
-.product-icon {
-    position: relative;
-    z-index: 2;
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> PvP equipment</li>
+                    <li><i class="fa-solid fa-check"></i> Special items</li>
+                    <li><i class="fa-solid fa-check"></i> Battle ready</li>
+                </ul>
 
-    font-size: 65px;
+                <div class="product-bottom">
 
-    filter: drop-shadow(0 0 18px currentColor);
-}
+                    <b>₹149</b>
 
-.rank-blue {
-    background: radial-gradient(circle, #164e85, #080c13);
-    color: #46aaff;
-}
+                    <button onclick="addToCart('Berserker Kit', 149)">
+                        ADD
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
 
-.rank-red {
-    background: radial-gradient(circle, #8a251f, #120708);
-    color: #ff604e;
-}
+                </div>
 
-.rank-gold {
-    background: radial-gradient(circle, #87651b, #120f07);
-    color: #ffd65a;
-}
+            </div>
 
-.rank-purple {
-    background: radial-gradient(circle, #642083, #100712);
-    color: #d869ff;
-}
+        </article>
 
-.rank-dark {
-    background: radial-gradient(circle, #45214d, #08070a);
-    color: #f04cff;
-}
 
-.crate-red {
-    background: radial-gradient(circle, #72251d, #110707);
-    color: #ff654e;
-}
+        <!-- COSMETIC -->
 
-.key-purple {
-    background: radial-gradient(circle, #4b1d6c, #0c0710);
-    color: #d069ff;
-}
+        <article class="product" data-category="cosmetic" data-price="79">
 
-.coin-gold {
-    background: radial-gradient(circle, #765b13, #100d05);
-    color: #ffd33d;
-}
+            <div class="product-image cosmetic-pink">
 
-.kit-red {
-    background: radial-gradient(circle, #591c1c, #100607);
-    color: #ff4c4c;
-}
+                <div class="product-icon">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
 
-.cosmetic-pink {
-    background: radial-gradient(circle, #712157, #10070d);
-    color: #ff5bd5;
-}
+            </div>
 
-.product-tag,
-.popular {
-    position: absolute;
-    z-index: 4;
+            <div class="product-body">
 
-    top: 12px;
-    left: 12px;
+                <small>COSMETIC</small>
 
-    padding: 6px 8px;
+                <h3>FLAME TRAIL</h3>
 
-    border-radius: 4px;
+                <p>
+                    Add a fiery effect to your Minecraft character.
+                </p>
 
-    background: rgba(0,0,0,.45);
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Flame effect</li>
+                    <li><i class="fa-solid fa-check"></i> Cosmetic only</li>
+                    <li><i class="fa-solid fa-check"></i> Permanent</li>
+                </ul>
 
-    color: #ddd;
+                <div class="product-bottom">
 
-    font-size: 8px;
-    font-weight: 900;
-}
+                    <b>₹79</b>
 
-.popular {
-    background: #d12d25;
-    color: white;
-}
+                    <button onclick="addToCart('Flame Trail', 79)">
+                        ADD
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
 
-.product-body {
-    padding: 20px;
-}
+                </div>
 
-.product-body > small {
-    color: #777;
+            </div>
 
-    font-size: 8px;
-    font-weight: 900;
+        </article>
 
-    letter-spacing: 2px;
-}
 
-.product-body h3 {
-    margin: 6px 0 8px;
+    </div>
 
-    font-size: 19px;
-}
+</section>
 
-.product-body p {
-    min-height: 45px;
 
-    color: #777;
+<!-- ================= FEATURES ================= -->
 
-    font-size: 11px;
+<section id="about" class="features">
 
-    line-height: 1.5;
-}
+    <div class="section-heading center">
 
-.product-body ul {
-    list-style: none;
+        <span>WHY NOVASMP?</span>
 
-    margin: 15px 0;
-}
+        <h2>
+            BUILT FOR
+            <strong>PLAYERS</strong>
+        </h2>
 
-.product-body li {
-    margin: 7px 0;
+    </div>
 
-    color: #aaa;
 
-    font-size: 10px;
-}
+    <div class="feature-grid">
 
-.product-body li i {
-    margin-right: 5px;
+        <div class="feature">
 
-    color: #a938e8;
-}
+            <i class="fa-solid fa-bolt"></i>
 
-.product-bottom {
-    padding-top: 15px;
+            <h3>INSTANT DELIVERY</h3>
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+            <p>
+                Your purchased items can be delivered directly
+                to your Minecraft account.
+            </p>
 
-    border-top: 1px solid #211927;
-}
+        </div>
 
-.product-bottom b {
-    font-size: 22px;
-}
 
-.product-bottom button {
-    padding: 10px 13px;
+        <div class="feature">
 
-    border: none;
-    border-radius: 5px;
+            <i class="fa-solid fa-shield-halved"></i>
 
-    background: #8d28bd;
+            <h3>SECURE SHOP</h3>
 
-    color: white;
+            <p>
+                Shop interface designed for a safe and simple
+                purchasing experience.
+            </p>
 
-    font-size: 10px;
-    font-weight: 900;
+        </div>
 
-    cursor: pointer;
 
-    transition: .25s;
-}
+        <div class="feature">
 
-.product-bottom button:hover {
-    background: #b037ec;
-}
+            <i class="fa-solid fa-headset"></i>
 
+            <h3>PLAYER SUPPORT</h3>
 
-/* FEATURES */
+            <p>
+                Get help with purchases, ranks and server issues.
+            </p>
 
-.features {
-    padding: 100px 6%;
+        </div>
 
-    background: #09070c;
 
-    border-top: 1px solid #211528;
-}
+        <div class="feature">
 
-.center {
-    display: block;
-    text-align: center;
-}
+            <i class="fa-solid fa-server"></i>
 
-.center h2 {
-    margin-top: 8px;
+            <h3>24/7 SERVER</h3>
 
-    font-size: 38px;
-}
+            <p>
+                NovaSMP is built for an always-on Minecraft
+                PvP experience.
+            </p>
 
-.center strong {
-    color: #a938e8;
-}
+        </div>
 
-.feature-grid {
-    max-width: 1100px;
+    </div>
 
-    margin: 50px auto 0;
+</section>
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
 
-    gap: 15px;
-}
+<!-- ================= SOCIAL ================= -->
 
-.feature {
-    padding: 30px 20px;
+<section class="community">
 
-    text-align: center;
+    <div>
 
-    border: 1px solid #271d2e;
-    border-radius: 9px;
+        <span>FOLLOW NOVASMP</span>
 
-    background: #0d0b10;
+        <h2>
+            JOIN THE
+            <strong>COMMUNITY</strong>
+        </h2>
 
-    transition: .3s;
-}
+        <p>
+            Follow us for updates, events and Minecraft PvP content.
+        </p>
 
-.feature:hover {
-    transform: translateY(-5px);
+    </div>
 
-    border-color: #8f2bc0;
-}
 
-.feature > i {
-    margin-bottom: 18px;
+    <div class="social-buttons">
 
-    color: #b63bfa;
+        <a
+            href="https://youtube.com/@zenixplayzlive"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social youtube"
+        >
+            <i class="fa-brands fa-youtube"></i>
 
-    font-size: 28px;
-}
+            <div>
+                <b>YouTube</b>
+                <small>@zenixplayzlive</small>
+            </div>
+        </a>
 
-.feature h3 {
-    margin-bottom: 10px;
 
-    font-size: 12px;
-}
+        <a
+            href="https://www.instagram.com/novasmp.official/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social instagram"
+        >
+            <i class="fa-brands fa-instagram"></i>
 
-.feature p {
-    color: #777;
+            <div>
+                <b>Instagram</b>
+                <small>@novasmp.official</small>
+            </div>
+        </a>
 
-    font-size: 10px;
 
-    line-height: 1.6;
-}
+        <a
+            href="#"
+            class="social discord"
+            onclick="discordComing(event)"
+        >
+            <i class="fa-brands fa-discord"></i>
+        </a>
 
+    </div>
 
-/* COMMUNITY */
+    <small>
+        © 2026 NovaSMP. All Rights Reserved.
+    </small>
 
-.community {
-    padding: 80px 7%;
+</footer>
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
 
-    background:
-        radial-gradient(
-            circle at right,
-            rgba(143,31,194,.18),
-            transparent 45%
-        ),
-        #060508;
+<!-- ================= CART ================= -->
 
-    border-top: 1px solid #25172c;
-}
+<div id="cartOverlay" class="cart-overlay"
+     onclick="closeCartOutside(event)">
 
-.community h2 {
-    margin-top: 9px;
+    <div class="cart-panel">
 
-    font-size: 35px;
-}
+        <div class="cart-header">
 
-.community h2 strong {
-    color: #a938e8;
-}
+            <h2>
+                <i class="fa-solid fa-cart-shopping"></i>
+                YOUR CART
+            </h2>
 
-.community p {
-    margin-top: 12px;
+            <button onclick="closeCart()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
 
-    color: #777;
+        </div>
 
-    font-size: 12px;
-}
 
-.social-buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
+        <div id="cartItems" class="cart-items">
 
-.social {
-    min-width: 175px;
+            <div class="empty-cart">
 
-    padding: 13px 15px;
+                <i class="fa-solid fa-cart-shopping"></i>
 
-    display: flex;
-    align-items: center;
-    gap: 11px;
+                <h3>Your cart is empty</h3>
 
-    border-radius: 8px;
+                <p>
+                    Add some powerful PvP upgrades!
+                </p>
 
-    transition: .3s;
-}
+            </div>
 
-.social:hover {
-    transform: translateY(-4px);
-}
+        </div>
 
-.social > i {
-    font-size: 24px;
-}
 
-.social div {
-    display: flex;
-    flex-direction: column;
-}
+        <div class="cart-footer">
 
-.social b {
-    font-size: 11px;
-}
+            <div class="total">
 
-.social small {
-    margin-top: 3px;
+                <span>TOTAL</span>
 
-    color: rgba(255,255,255,.6);
+                <strong id="cartTotal">
+                    ₹0
+                </strong>
 
-    font-size: 8px;
-}
+            </div>
 
-.youtube {
-    background: #e60000;
-}
+            <button onclick="checkout()" class="checkout-btn">
 
-.instagram {
-    background:
-        linear-gradient(135deg,
-            #7b2cbf,
-            #e1306c,
-            #f77737);
-}
+                PROCEED TO CHECKOUT
 
-.discord {
-    background: #5865f2;
-}
+                <i class="fa-solid fa-arrow-right"></i>
 
+            </button>
 
-/* FOOTER */
+        </div>
 
-footer {
-    padding: 50px 20px;
+    </div>
 
-    text-align: center;
+</div>
 
-    background: #030304;
 
-    color: #666;
-}
+<script src="script.js"></script>
 
-.footer-brand {
-    color: white;
-
-    font-size: 24px;
-    font-weight: 900;
-}
-
-.footer-brand i,
-.footer-brand span {
-    color: #a938e8;
-}
-
-footer p {
-    margin: 12px 0 20px;
-
-    font-size: 10px;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    font-size: 10px;
-}
-
-.footer-links a:hover {
-    color: #b438ff;
-}
-
-.footer-social {
-    margin: 25px 0;
-
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-}
-
-.footer-social a {
-    color: #777;
-
-    font-size: 20px;
-
-    transition: .25s;
-}
-
-.footer-social a:hover {
-    color: #b438ff;
-}
-
-
-/* CART */
-
-.cart-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 3000;
-
-    display: none;
-
-    justify-content: flex-end;
-
-    background: rgba(0,0,0,.7);
-
-    backdrop-filter: blur(5px);
-}
-
-.cart-overlay.show {
-    display: flex;
-}
-
-.cart-panel {
-    width: min(430px, 100%);
-
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    background: #0b090e;
-
-    border-left: 1px solid #34223e;
-
-    box-shadow: -20px 0 70px rgba(0,0,0,.6);
-}
-
-.cart-header {
-    padding: 23px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    border-bottom: 1px solid #24192b;
-}
-
-.cart-header h2 {
-    font-size: 17px;
-}
-
-.cart-header h2 i {
-    color: #ac35ed;
-}
-
-.cart-header button {
-    width: 35px;
-    height: 35px;
-
-    border: 1px solid #34243d;
-    border-radius: 6px;
-
-    background: #121016;
-
-    color: white;
-
-    cursor: pointer;
-}
-
-.cart-items {
-    flex: 1;
-
-    padding: 20px;
-
-    overflow-y: auto;
-}
-
-.empty-cart {
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    color: #555;
-}
-
-.empty-cart > i {
-    margin-bottom: 15px;
-
-    color: #7c268e;
-
-    font-size: 45px;
-}
-
-.empty-cart h3 {
-    color: #aaa;
-}
-
-.empty-cart p {
-    margin-top: 7px;
-
-    font-size: 11px;
-}
-
-.cart-item {
-    margin-bottom: 10px;
-    padding: 15px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-
-    border: 1px solid #2a1d31;
-    border-radius: 7px;
-
-    background: #100d13;
-}
-
-.cart-item-info b {
-    display: block;
-
-    font-size: 12px;
-}
-
-.cart-item-info span {
-    display: block;
-
-    margin-top: 5px;
-
-    color: #a938e8;
-
-    font-size: 11px;
-}
-
-.remove-item {
-    border: none;
-
-    background: transparent;
-
-    color: #ff5555;
-
-    cursor: pointer;
-}
-
-.cart-footer {
-    padding: 20px;
-
-    border-top: 1px solid #24192b;
-}
-
-.total {
-    margin-bottom: 15px;
-
-    display: flex;
-    justify-content: space-between;
-}
-
-.total span {
-    color: #777;
-
-    font-size: 11px;
-}
-
-.total strong {
-    font-size: 23px;
-}
-
-.checkout-btn {
-    width: 100%;
-
-    padding: 15px;
-
-    border: none;
-    border-radius: 7px;
-
-    background: linear-gradient(135deg, #a52cff, #7114b2);
-
-    color: white;
-
-    font-size: 11px;
-    font-weight: 900;
-
-    cursor: pointer;
-}
-
-
-/* RESPONSIVE */
-
-@media (max-width: 1100px) {
-
-    nav {
-        display: none;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .shop-hero {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-art {
-        display: none;
-    }
-}
-
-
-@media (max-width: 750px) {
-
-    .topbar span:last-child {
-        display: none;
-    }
-
-    .navbar {
-        min-height: 65px;
-    }
-
-    .brand b {
-        font-size: 17px;
-    }
-
-    .brand-icon {
-        width: 38px;
-        height: 38px;
-    }
-
-    .shop-hero {
-        padding: 70px 5%;
-    }
-
-    .shop-hero h1 {
-        font-size: 58px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .primary-btn,
-    .secondary-btn {
-        width: 100%;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .section-heading {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .community {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-
-@media (max-width: 480px) {
-
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .categories {
-        justify-content: flex-start;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-    }
-
-    .category {
-        white-space: nowrap;
-    }
-
-    .shop-hero h1 {
-        font-size: 48px;
-    }
-
-    .hero-stats {
-        gap: 20px;
-    }
-
-    .social {
-        width: 100%;
-    }
-
-    .nav-actions {
-        margin-left: auto;
-    }
-}
+</body>
+</html>
