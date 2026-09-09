@@ -6,17 +6,20 @@
 
     <title>NovaSMP | Minecraft PvP</title>
 
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
 <header class="navbar">
 
     <div class="logo">
-        ⚔️ <span>NOVA</span> SMP
+        <i class="fa-solid fa-khanda"></i>
+        <span>NOVA</span> SMP
     </div>
 
     <nav>
@@ -29,20 +32,21 @@
     </nav>
 
     <a href="#home" class="play-btn">
-        PLAY NOW 🎮
+        PLAY NOW <i class="fa-solid fa-gamepad"></i>
     </a>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section id="home" class="hero">
 
     <div class="hero-left">
 
         <div class="badge">
-            ⚔️ #1 PVP SMP NETWORK
+            <i class="fa-solid fa-shield-halved"></i>
+            #1 PVP SMP NETWORK
         </div>
 
         <h1>
@@ -50,7 +54,8 @@
         </h1>
 
         <h2>
-            ⚔️ FIGHT. SURVIVE. <span>DOMINATE.</span>
+            <i class="fa-solid fa-bolt"></i>
+            FIGHT. SURVIVE. <span>DOMINATE.</span>
         </h2>
 
         <p>
@@ -59,8 +64,6 @@
             the legend of NovaSMP!
         </p>
 
-
-        <!-- SERVER INFO -->
 
         <div class="server-info">
 
@@ -75,7 +78,7 @@
                     </span>
 
                     <button onclick="copyIP()" title="Copy IP">
-                        📋
+                        <i class="fa-regular fa-copy"></i>
                     </button>
 
                 </div>
@@ -88,7 +91,8 @@
                 <small>STATUS</small>
 
                 <strong>
-                    🟢 ONLINE
+                    <i class="fa-solid fa-circle"></i>
+                    ONLINE
                 </strong>
 
                 <span>
@@ -100,17 +104,33 @@
         </div>
 
 
-        <!-- HERO BUTTONS -->
-
         <div class="hero-buttons">
 
             <button
                 class="join-btn"
                 onclick="copyIP()"
             >
-                🎮 JOIN SERVER
+                <i class="fa-solid fa-gamepad"></i>
+                JOIN SERVER
+            </button>
 
-    <!-- ================= VIDEO ================= -->
+
+            <a
+                href="https://youtube.com/@zenixplayzlive"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="youtube-btn"
+            >
+                <i class="fa-brands fa-youtube"></i>
+                YOUTUBE
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- VIDEO -->
 
     <div class="video-area">
 
@@ -124,7 +144,6 @@
                 playsinline
             >
 
-                <!-- Temporary video -->
                 <source
                     src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
                     type="video/mp4"
@@ -139,7 +158,9 @@
 
         <div class="sale">
 
-            👑 <b>50% OFF</b>
+            <i class="fa-solid fa-crown"></i>
+
+            <b>50% OFF</b>
             SUMMER SALE ON ALL RANKS!
 
         </div>
@@ -149,12 +170,13 @@
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- ABOUT -->
 
 <section id="about" class="section">
 
     <h2>
-        ⚔️ ABOUT <span>NOVASMP</span>
+        <i class="fa-solid fa-swords"></i>
+        ABOUT <span>NOVASMP</span>
     </h2>
 
 
@@ -163,7 +185,7 @@
         <div class="card">
 
             <div class="icon">
-                ⚔️
+                <i class="fa-solid fa-swords"></i>
             </div>
 
             <h3>
@@ -181,7 +203,7 @@
         <div class="card">
 
             <div class="icon">
-                🌍
+                <i class="fa-solid fa-earth-americas"></i>
             </div>
 
             <h3>
@@ -199,7 +221,7 @@
         <div class="card">
 
             <div class="icon">
-                🏆
+                <i class="fa-solid fa-trophy"></i>
             </div>
 
             <h3>
@@ -218,39 +240,46 @@
 </section>
 
 
-<!-- ================= RULES ================= -->
+<!-- RULES -->
 
 <section id="rules" class="section dark-section">
 
     <h2>
-        📜 SERVER <span>RULES</span>
+        <i class="fa-solid fa-scroll"></i>
+        SERVER <span>RULES</span>
     </h2>
 
 
     <div class="rules">
 
         <div>
-            ⚔️ No hacking or cheating.
+            <i class="fa-solid fa-shield-halved"></i>
+            No hacking or cheating.
         </div>
 
         <div>
-            🚫 No exploiting bugs.
+            <i class="fa-solid fa-ban"></i>
+            No exploiting bugs.
         </div>
 
         <div>
-            🤝 Respect all players.
+            <i class="fa-solid fa-handshake"></i>
+            Respect all players.
         </div>
 
         <div>
-            📢 No spam or advertising.
+            <i class="fa-solid fa-bullhorn"></i>
+            No spam or advertising.
         </div>
 
         <div>
-            💀 No unfair gameplay.
+            <i class="fa-solid fa-skull-crossbones"></i>
+            No unfair gameplay.
         </div>
 
         <div>
-            ❤️ Have fun and enjoy NovaSMP!
+            <i class="fa-solid fa-heart"></i>
+            Have fun and enjoy NovaSMP!
         </div>
 
     </div>
@@ -258,12 +287,13 @@
 </section>
 
 
-<!-- ================= RANKS ================= -->
+<!-- RANKS -->
 
 <section id="ranks" class="section">
 
     <h2>
-        🏆 PVP <span>RANKS</span>
+        <i class="fa-solid fa-ranking-star"></i>
+        PVP <span>RANKS</span>
     </h2>
 
 
@@ -273,20 +303,14 @@
         <div class="rank knight">
 
             <div class="rank-icon">
-                ⚔️
+                <i class="fa-solid fa-shield-halved"></i>
             </div>
 
-            <h3>
-                KNIGHT
-            </h3>
+            <h3>KNIGHT</h3>
 
-            <p>
-                Essential perks
-            </p>
+            <p>Essential perks</p>
 
-            <strong>
-                ₹99
-            </strong>
+            <strong>₹99</strong>
 
             <button onclick="buyRank('Knight')">
                 BUY NOW
@@ -298,20 +322,14 @@
         <div class="rank warrior">
 
             <div class="rank-icon">
-                🔥
+                <i class="fa-solid fa-fire"></i>
             </div>
 
-            <h3>
-                WARRIOR
-            </h3>
+            <h3>WARRIOR</h3>
 
-            <p>
-                Powerful perks
-            </p>
+            <p>Powerful perks</p>
 
-            <strong>
-                ₹249
-            </strong>
+            <strong>₹249</strong>
 
             <button onclick="buyRank('Warrior')">
                 BUY NOW
@@ -323,20 +341,14 @@
         <div class="rank champion">
 
             <div class="rank-icon">
-                👑
+                <i class="fa-solid fa-crown"></i>
             </div>
 
-            <h3>
-                CHAMPION
-            </h3>
+            <h3>CHAMPION</h3>
 
-            <p>
-                Champion rewards
-            </p>
+            <p>Champion rewards</p>
 
-            <strong>
-                ₹499
-            </strong>
+            <strong>₹499</strong>
 
             <button onclick="buyRank('Champion')">
                 BUY NOW
@@ -348,20 +360,14 @@
         <div class="rank legend">
 
             <div class="rank-icon">
-                💜
+                <i class="fa-solid fa-gem"></i>
             </div>
 
-            <h3>
-                LEGEND
-            </h3>
+            <h3>LEGEND</h3>
 
-            <p>
-                Ultimate experience
-            </p>
+            <p>Ultimate experience</p>
 
-            <strong>
-                ₹999
-            </strong>
+            <strong>₹999</strong>
 
             <button onclick="buyRank('Legend')">
                 BUY NOW
@@ -373,20 +379,14 @@
         <div class="rank over">
 
             <div class="rank-icon">
-                💀
+                <i class="fa-solid fa-skull"></i>
             </div>
 
-            <h3>
-                OVERLORD
-            </h3>
+            <h3>OVERLORD</h3>
 
-            <p>
-                Rule the server
-            </p>
+            <p>Rule the server</p>
 
-            <strong>
-                ₹1499
-            </strong>
+            <strong>₹1499</strong>
 
             <button onclick="buyRank('Overlord')">
                 BUY NOW
@@ -399,34 +399,34 @@
 </section>
 
 
-<!-- ================= STORE ================= -->
+<!-- STORE -->
 
 <section id="store" class="section dark-section">
 
     <h2>
-        🛒 NOVASMP <span>STORE</span>
+        <i class="fa-solid fa-cart-shopping"></i>
+        NOVASMP <span>STORE</span>
     </h2>
 
     <p class="center-text">
         Get exclusive ranks, cosmetics and special perks.
     </p>
 
-    <a
-        href="#ranks"
-        class="big-btn"
-    >
-        VIEW RANKS 🛒
+    <a href="#ranks" class="big-btn">
+        VIEW RANKS
+        <i class="fa-solid fa-cart-shopping"></i>
     </a>
 
 </section>
 
 
-<!-- ================= SERVER STATS ================= -->
+<!-- STATS -->
 
 <section class="section">
 
     <h2>
-        📊 SERVER <span>STATS</span>
+        <i class="fa-solid fa-chart-simple"></i>
+        SERVER <span>STATS</span>
     </h2>
 
 
@@ -434,9 +434,7 @@
 
         <div class="stat">
 
-            <strong>
-                142
-            </strong>
+            <strong>142</strong>
 
             <span>
                 PLAYERS ONLINE
@@ -447,9 +445,7 @@
 
         <div class="stat">
 
-            <strong>
-                1.21.x
-            </strong>
+            <strong>1.21.x</strong>
 
             <span>
                 SERVER VERSION
@@ -460,9 +456,7 @@
 
         <div class="stat">
 
-            <strong>
-                99.9%
-            </strong>
+            <strong>99.9%</strong>
 
             <span>
                 UPTIME
@@ -473,9 +467,7 @@
 
         <div class="stat">
 
-            <strong>
-                12,548
-            </strong>
+            <strong>12,548</strong>
 
             <span>
                 TOTAL JOINS
@@ -488,14 +480,15 @@
 </section>
 
 
-<!-- ================= SOCIAL ================= -->
+<!-- SOCIAL -->
 
 <section id="social" class="discord">
 
     <div class="social-content">
 
         <div class="social-badge">
-            🌐 NOVASMP COMMUNITY
+            <i class="fa-solid fa-globe"></i>
+            NOVASMP COMMUNITY
         </div>
 
         <h2>
@@ -510,6 +503,7 @@
 
         <div class="social-buttons">
 
+
             <!-- YOUTUBE -->
 
             <a
@@ -518,11 +512,19 @@
                 rel="noopener noreferrer"
                 class="social youtube"
             >
-                ▶️
+
+                <i class="fa-brands fa-youtube"></i>
+
                 <span>
+
                     <b>YouTube</b>
-                    <small>@zenixplayzlive</small>
+
+                    <small>
+                        @zenixplayzlive
+                    </small>
+
                 </span>
+
             </a>
 
 
@@ -534,11 +536,19 @@
                 rel="noopener noreferrer"
                 class="social instagram"
             >
-                📸
+
+                <i class="fa-brands fa-instagram"></i>
+
                 <span>
+
                     <b>Instagram</b>
-                    <small>@novasmp.official</small>
+
+                    <small>
+                        @novasmp.official
+                    </small>
+
                 </span>
+
             </a>
 
 
@@ -548,11 +558,19 @@
                 href="#"
                 class="social discord-social"
             >
-                💬
+
+                <i class="fa-brands fa-discord"></i>
+
                 <span>
+
                     <b>Discord</b>
-                    <small>Join Community</small>
+
+                    <small>
+                        Join Community
+                    </small>
+
                 </span>
+
             </a>
 
         </div>
@@ -562,35 +580,30 @@
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
     <div class="footer-logo">
-        ⚔️ NOVA <span>SMP</span>
+
+        <i class="fa-solid fa-khanda"></i>
+
+        NOVA <span>SMP</span>
+
     </div>
+
 
     <div class="footer-links">
 
-        <a href="#home">
-            Home
-        </a>
+        <a href="#home">Home</a>
 
-        <a href="#about">
-            About
-        </a>
+        <a href="#about">About</a>
 
-        <a href="#rules">
-            Rules
-        </a>
+        <a href="#rules">Rules</a>
 
-        <a href="#ranks">
-            Ranks
-        </a>
+        <a href="#ranks">Ranks</a>
 
-        <a href="#social">
-            Social
-        </a>
+        <a href="#social">Social</a>
 
     </div>
 
@@ -600,15 +613,23 @@
         <a
             href="https://youtube.com/@zenixplayzlive"
             target="_blank"
+            rel="noopener noreferrer"
         >
-            ▶️
+            <i class="fa-brands fa-youtube"></i>
         </a>
+
 
         <a
             href="https://www.instagram.com/novasmp.official/"
             target="_blank"
+            rel="noopener noreferrer"
         >
-            📸
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+
+        <a href="#">
+            <i class="fa-brands fa-discord"></i>
         </a>
 
     </div>
@@ -619,7 +640,8 @@
     </p>
 
     <p>
-        Made with ❤️ for Minecraft players.
+        Made with <i class="fa-solid fa-heart"></i>
+        for Minecraft players.
     </p>
 
 </footer>
