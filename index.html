@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaSMP | Minecraft PvP</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        ⚔️ <span>NOVA</span> SMP
+    </div>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#rules">RULES</a>
+        <a href="#ranks">RANKS</a>
+        <a href="#store">STORE</a>
+        <a href="#discord">DISCORD</a>
+    </nav>
+
+    <a href="#home" class="play-btn">PLAY NOW 🎮</a>
+</header>
+
+
+<!-- HERO -->
+
+<section id="home" class="hero">
+
+    <div class="hero-left">
+
+        <div class="badge">⚔️ #1 PVP SMP NETWORK</div>
+
+        <h1>
+            NOVA <span>SMP</span>
+        </h1>
+
+        <h2>
+            ⚔️ FIGHT. SURVIVE. <span>DOMINATE.</span>
+        </h2>
+
+        <p>
+            A competitive Minecraft survival server where only
+            the strongest survive. Build, fight, raid and become
+            the legend of NovaSMP!
+        </p>
+
+        <div class="server-info">
+
+            <div>
+                <small>SERVER IP</small>
+
+                <div class="ip-box">
+                    <span id="serverIP">play.novasmp.sryze.cc</span>
+
+                    <button onclick="copyIP()">📋</button>
+                </div>
+            </div>
+
+            <div class="status">
+                <small>STATUS</small>
+                <strong>🟢 ONLINE</strong>
+                <span>142 / 500</span>
+            </div>
+
+        </div>
+
+        <div class="hero-buttons">
+            <button class="join-btn" onclick="copyIP()">
+                🎮 JOIN SERVER
+            </button>
+
+            <a href="#discord" class="discord-btn">
+                💬 JOIN DISCORD
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- VIDEO -->
+
+    <div class="video-area">
+
+        <div class="video-frame">
+
+            <video
+                controls
+                autoplay
+                muted
+                loop
+                playsinline
+            >
+                <source
+                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support video.
+            </video>
+
+        </div>
+
+        <div class="sale">
+            👑 <b>50% OFF</b> SUMMER SALE ON ALL RANKS!
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about" class="section">
+
+    <h2>⚔️ ABOUT <span>NOVASMP</span></h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">⚔️</div>
+            <h3>EPIC PVP</h3>
+            <p>
+                Fight players and prove that you are
+                the strongest warrior.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌍</div>
+            <h3>SURVIVAL</h3>
+            <p>
+                Build your base, collect resources and
+                survive with your friends.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏆</div>
+            <h3>EVENTS</h3>
+            <p>
+                Participate in exciting events and
+                win amazing rewards.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RULES -->
+
+<section id="rules" class="section dark-section">
+
+    <h2>📜 SERVER <span>RULES</span></h2>
+
+    <div class="rules">
+
+        <div>⚔️ No hacking or cheating.</div>
+        <div>🚫 No exploiting bugs.</div>
+        <div>🤝 Respect all players.</div>
+        <div>📢 No spam or advertising.</div>
+        <div>💀 No unfair gameplay.</div>
+        <div>❤️ Have fun and enjoy NovaSMP!</div>
+
+    </div>
+
+</section>
+
+
+<!-- RANKS -->
+
+<section id="ranks" class="section">
+
+    <h2>🏆 PVP <span>RANKS</span></h2>
+
+    <div class="rank-container">
+
+        <div class="rank knight">
+            <h3>⚔ KNIGHT</h3>
+            <p>Essential perks</p>
+            <strong>₹99</strong>
+            <button>BUY NOW</button>
+        </div>
+
+        <div class="rank warrior">
+            <h3>🔥 WARRIOR</h3>
+            <p>Powerful perks</p>
+            <strong>₹249</strong>
+            <button>BUY NOW</button>
+        </div>
+
+        <div class="rank champion">
+            <h3>👑 CHAMPION</h3>
+            <p>Champion rewards</p>
+            <strong>₹499</strong>
+            <button>BUY NOW</button>
+        </div>
+
+        <div class="rank legend">
+            <h3>💜 LEGEND</h3>
+            <p>Ultimate experience</p>
+            <strong>₹999</strong>
+            <button>BUY NOW</button>
+        </div>
+
+        <div class="rank over">
+            <h3>💀 OVERLORD</h3>
+            <p>Rule the server</p>
+            <strong>₹1499</strong>
+            <button>BUY NOW</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STORE -->
+
+<section id="store" class="section dark-section">
+
+    <h2>🛒 NOVASMP <span>STORE</span></h2>
+
+    <p class="center-text">
+        Get exclusive ranks, cosmetics and special perks.
+    </p>
+
+    <a href="#" class="big-btn">
+        OPEN STORE 🛒
+    </a>
+
+</section>
+
+
+<!-- SERVER STATS -->
+
+<section class="section">
+
+    <h2>📊 SERVER <span>STATS</span></h2>
+
+    <div class="stats">
+
+        <div class="stat">
+            <strong>142</strong>
+            <span>PLAYERS ONLINE</span>
+        </div>
+
+        <div class="stat">
+            <strong>1.21.x</strong>
+            <span>SERVER VERSION</span>
+        </div>
+
+        <div class="stat">
+            <strong>99.9%</strong>
+            <span>UPTIME</span>
+        </div>
+
+        <div class="stat">
+            <strong>12,548</strong>
+            <span>TOTAL JOINS</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DISCORD -->
+
+<section id="discord" class="discord">
+
+    <h2>💬 JOIN <span>DISCORD</span></h2>
+
+    <p>
+        Join the NovaSMP community and play with thousands
+        of Minecraft players!
+    </p>
+
+    <a href="#" class="discord-big">
+        JOIN DISCORD 🚀
+    </a>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-logo">
+        ⚔️ NOVA SMP
+    </div>
+
+    <p>
+        © 2026 NovaSMP. All Rights Reserved.
+    </p>
+
+    <p>
+        Made with ❤️ for Minecraft players.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
