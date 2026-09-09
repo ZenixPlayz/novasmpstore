@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NovaSMP PvP Shop</title>
+    <title>NovaSMP | Minecraft PvP</title>
 
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -14,163 +15,383 @@
 
 <body>
 
-<!-- ================= TOP BAR ================= -->
-
-<div class="topbar">
-    <span>
-        <i class="fa-solid fa-bolt"></i>
-        NOVASMP SUMMER SALE — UP TO 50% OFF
-    </span>
-
-    <span>
-        <i class="fa-solid fa-circle"></i>
-        SERVER ONLINE
-    </span>
-</div>
-
-
-<!-- ================= NAVBAR ================= -->
-
 <header class="navbar">
 
-    <a href="#" class="brand">
-        <div class="brand-icon">
-            <i class="fa-solid fa-swords"></i>
-        </div>
-
-        <div>
-            <b>NOVA<span>SMP</span></b>
-            <small>PVP SHOP</small>
-        </div>
-    </a>
-
+    <div class="logo">
+        <i class="fa-solid fa-khanda"></i>
+        <span>NOVA</span> SMP
+    </div>
 
     <nav>
         <a href="#home">HOME</a>
-        <a href="#shop">SHOP</a>
-        <a href="#ranks">RANKS</a>
-        <a href="#crates">CRATES</a>
         <a href="#about">ABOUT</a>
+        <a href="#rules">RULES</a>
+        <a href="#ranks">RANKS</a>
+        <a href="#store">STORE</a>
+        <a href="#social">SOCIAL</a>
     </nav>
 
-
-    <div class="nav-actions">
-
-        <button class="icon-btn" onclick="openSearch()">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-
-        <button class="cart-btn" onclick="openCart()">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span id="cartCount">0</span>
-        </button>
-
-    </div>
+    <a href="#home" class="play-btn">
+        PLAY NOW <i class="fa-solid fa-gamepad"></i>
+    </a>
 
 </header>
 
 
-<!-- ================= SEARCH ================= -->
+<!-- HERO -->
 
-<div id="searchBox" class="search-overlay">
+<section id="home" class="hero">
 
-    <div class="search-inner">
+    <div class="hero-left">
 
-        <button onclick="closeSearch()" class="close-search">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-
-        <input
-            id="searchInput"
-            type="text"
-            placeholder="Search ranks, crates, keys, coins..."
-            oninput="searchProducts()"
-        >
-
-        <i class="fa-solid fa-magnifying-glass"></i>
-
-    </div>
-
-</div>
-
-
-<!-- ================= HERO ================= -->
-
-<section id="home" class="shop-hero">
-
-    <div class="hero-content">
-
-        <div class="hero-badge">
-            <i class="fa-solid fa-crown"></i>
-            OFFICIAL NOVASMP STORE
+        <div class="badge">
+            <i class="fa-solid fa-shield-halved"></i>
+            #1 PVP SMP NETWORK
         </div>
 
         <h1>
-            DOMINATE
-            <span>THE BATTLEFIELD</span>
+            NOVA <span>SMP</span>
         </h1>
 
+        <h2>
+            <i class="fa-solid fa-bolt"></i>
+            FIGHT. SURVIVE. <span>DOMINATE.</span>
+        </h2>
+
         <p>
-            Upgrade your Minecraft PvP experience with exclusive
-            ranks, crates, keys, coins, kits and cosmetics.
+            A competitive Minecraft survival server where only
+            the strongest survive. Build, fight, raid and become
+            the legend of NovaSMP!
         </p>
+
+
+        <div class="server-info">
+
+            <div class="server-ip-area">
+
+                <small>SERVER IP</small>
+
+                <div class="ip-box">
+
+                    <span id="serverIP">
+                        play.novasmp.sryze.cc
+                    </span>
+
+                    <button onclick="copyIP()" title="Copy IP">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="status">
+
+                <small>STATUS</small>
+
+                <strong>
+                    <i class="fa-solid fa-circle"></i>
+                    ONLINE
+                </strong>
+
+                <span>
+                    142 / 500 PLAYERS
+                </span>
+
+            </div>
+
+        </div>
 
 
         <div class="hero-buttons">
 
-            <a href="#shop" class="primary-btn">
-                SHOP NOW
-                <i class="fa-solid fa-arrow-right"></i>
+            <button
+                class="join-btn"
+                onclick="copyIP()"
+            >
+                <i class="fa-solid fa-gamepad"></i>
+                JOIN SERVER
+            </button>
+
+
+            <a
+                href="https://youtube.com/@zenixplayzlive"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="youtube-btn"
+            >
+                <i class="fa-brands fa-youtube"></i>
+                YOUTUBE
             </a>
 
-            <button onclick="copyIP()" class="secondary-btn">
-                <i class="fa-solid fa-gamepad"></i>
-                COPY SERVER IP
+        </div>
+
+    </div>
+
+
+    <!-- VIDEO -->
+
+    <div class="video-area">
+
+        <div class="video-frame">
+
+            <video
+                controls
+                autoplay
+                muted
+                loop
+                playsinline
+            >
+
+                <source
+                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support video.
+
+            </video>
+
+        </div>
+
+
+        <div class="sale">
+
+            <i class="fa-solid fa-crown"></i>
+
+            <b>50% OFF</b>
+            SUMMER SALE ON ALL RANKS!
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about" class="section">
+
+    <h2>
+        <i class="fa-solid fa-swords"></i>
+        ABOUT <span>NOVASMP</span>
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">
+                <i class="fa-solid fa-swords"></i>
+            </div>
+
+            <h3>
+                EPIC PVP
+            </h3>
+
+            <p>
+                Fight players and prove that you are
+                the strongest warrior.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                <i class="fa-solid fa-earth-americas"></i>
+            </div>
+
+            <h3>
+                SURVIVAL
+            </h3>
+
+            <p>
+                Build your base, collect resources and
+                survive with your friends.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <h3>
+                EVENTS
+            </h3>
+
+            <p>
+                Participate in exciting events and
+                win amazing rewards.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RULES -->
+
+<section id="rules" class="section dark-section">
+
+    <h2>
+        <i class="fa-solid fa-scroll"></i>
+        SERVER <span>RULES</span>
+    </h2>
+
+
+    <div class="rules">
+
+        <div>
+            <i class="fa-solid fa-shield-halved"></i>
+            No hacking or cheating.
+        </div>
+
+        <div>
+            <i class="fa-solid fa-ban"></i>
+            No exploiting bugs.
+        </div>
+
+        <div>
+            <i class="fa-solid fa-handshake"></i>
+            Respect all players.
+        </div>
+
+        <div>
+            <i class="fa-solid fa-bullhorn"></i>
+            No spam or advertising.
+        </div>
+
+        <div>
+            <i class="fa-solid fa-skull-crossbones"></i>
+            No unfair gameplay.
+        </div>
+
+        <div>
+            <i class="fa-solid fa-heart"></i>
+            Have fun and enjoy NovaSMP!
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RANKS -->
+
+<section id="ranks" class="section">
+
+    <h2>
+        <i class="fa-solid fa-ranking-star"></i>
+        PVP <span>RANKS</span>
+    </h2>
+
+
+    <div class="rank-container">
+
+
+        <div class="rank knight">
+
+            <div class="rank-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>KNIGHT</h3>
+
+            <p>Essential perks</p>
+
+            <strong>₹99</strong>
+
+            <button onclick="buyRank('Knight')">
+                BUY NOW
             </button>
 
         </div>
 
 
-        <div class="hero-stats">
+        <div class="rank warrior">
 
-            <div>
-                <b>24/7</b>
-                <small>ONLINE</small>
+            <div class="rank-icon">
+                <i class="fa-solid fa-fire"></i>
             </div>
 
-            <div>
-                <b>1.21.x</b>
-                <small>VERSION</small>
-            </div>
+            <h3>WARRIOR</h3>
 
-            <div>
-                <b>99.9%</b>
-                <small>UPTIME</small>
-            </div>
+            <p>Powerful perks</p>
+
+            <strong>₹249</strong>
+
+            <button onclick="buyRank('Warrior')">
+                BUY NOW
+            </button>
 
         </div>
 
-    </div>
 
+        <div class="rank champion">
 
-    <div class="hero-art">
+            <div class="rank-icon">
+                <i class="fa-solid fa-crown"></i>
+            </div>
 
-        <div class="glow"></div>
+            <h3>CHAMPION</h3>
 
-        <div class="floating-card card-one">
-            <i class="fa-solid fa-gem"></i>
-            <b>LEGEND</b>
-            <small>TOP RANK</small>
+            <p>Champion rewards</p>
+
+            <strong>₹499</strong>
+
+            <button onclick="buyRank('Champion')">
+                BUY NOW
+            </button>
+
         </div>
 
-        <div class="floating-card card-two">
-            <i class="fa-solid fa-key"></i>
-            <b>CRATE KEY</b>
-            <small>RARE LOOT</small>
+
+        <div class="rank legend">
+
+            <div class="rank-icon">
+                <i class="fa-solid fa-gem"></i>
+            </div>
+
+            <h3>LEGEND</h3>
+
+            <p>Ultimate experience</p>
+
+            <strong>₹999</strong>
+
+            <button onclick="buyRank('Legend')">
+                BUY NOW
+            </button>
+
         </div>
 
-        <div class="sword">
-            <i class="fa-solid fa-khanda"></i>
+
+        <div class="rank over">
+
+            <div class="rank-icon">
+                <i class="fa-solid fa-skull"></i>
+            </div>
+
+            <h3>OVERLORD</h3>
+
+            <p>Rule the server</p>
+
+            <strong>₹1499</strong>
+
+            <button onclick="buyRank('Overlord')">
+                BUY NOW
+            </button>
+
         </div>
 
     </div>
@@ -178,654 +399,223 @@
 </section>
 
 
-<!-- ================= CATEGORIES ================= -->
+<!-- STORE -->
 
-<section class="categories">
+<section id="store" class="section dark-section">
 
-    <button class="category active" onclick="filterProducts('all', this)">
-        <i class="fa-solid fa-layer-group"></i>
-        ALL
-    </button>
+    <h2>
+        <i class="fa-solid fa-cart-shopping"></i>
+        NOVASMP <span>STORE</span>
+    </h2>
 
-    <button class="category" onclick="filterProducts('rank', this)">
-        <i class="fa-solid fa-crown"></i>
-        RANKS
-    </button>
+    <p class="center-text">
+        Get exclusive ranks, cosmetics and special perks.
+    </p>
 
-    <button class="category" onclick="filterProducts('crate', this)">
-        <i class="fa-solid fa-box-open"></i>
-        CRATES
-    </button>
-
-    <button class="category" onclick="filterProducts('key', this)">
-        <i class="fa-solid fa-key"></i>
-        KEYS
-    </button>
-
-    <button class="category" onclick="filterProducts('coin', this)">
-        <i class="fa-solid fa-coins"></i>
-        COINS
-    </button>
-
-    <button class="category" onclick="filterProducts('kit', this)">
-        <i class="fa-solid fa-shield-halved"></i>
-        KITS
-    </button>
-
-    <button class="category" onclick="filterProducts('cosmetic', this)">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-        COSMETICS
-    </button>
+    <a href="#ranks" class="big-btn">
+        VIEW RANKS
+        <i class="fa-solid fa-cart-shopping"></i>
+    </a>
 
 </section>
 
 
-<!-- ================= SHOP ================= -->
+<!-- STATS -->
 
-<section id="shop" class="shop-section">
+<section class="section">
 
-    <div class="section-heading">
+    <h2>
+        <i class="fa-solid fa-chart-simple"></i>
+        SERVER <span>STATS</span>
+    </h2>
 
-        <div>
-            <span>OFFICIAL STORE</span>
 
-            <h2>
-                CHOOSE YOUR
-                <strong>UPGRADE</strong>
-            </h2>
-        </div>
+    <div class="stats">
 
-        <div class="sort-box">
+        <div class="stat">
 
-            <select id="sortSelect" onchange="sortProducts()">
-                <option value="default">Featured</option>
-                <option value="low">Price: Low → High</option>
-                <option value="high">Price: High → Low</option>
-            </select>
+            <strong>142</strong>
+
+            <span>
+                PLAYERS ONLINE
+            </span>
 
         </div>
 
-    </div>
 
+        <div class="stat">
 
-    <div id="productGrid" class="product-grid">
+            <strong>1.21.x</strong>
 
+            <span>
+                SERVER VERSION
+            </span>
 
-        <!-- KNIGHT -->
+        </div>
 
-        <article class="product" data-category="rank" data-price="99">
 
-            <div class="product-image rank-blue">
-                <div class="product-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
+        <div class="stat">
 
-                <span class="product-tag">
-                    STARTER
-                </span>
-            </div>
+            <strong>99.9%</strong>
 
-            <div class="product-body">
+            <span>
+                UPTIME
+            </span>
 
-                <small>RANK</small>
+        </div>
 
-                <h3>KNIGHT</h3>
 
-                <p>
-                    Perfect entry-level PvP rank with useful perks.
-                </p>
+        <div class="stat">
 
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Rank prefix</li>
-                    <li><i class="fa-solid fa-check"></i> Extra kits</li>
-                    <li><i class="fa-solid fa-check"></i> Cosmetic perks</li>
-                </ul>
+            <strong>12,548</strong>
 
-                <div class="product-bottom">
+            <span>
+                TOTAL JOINS
+            </span>
 
-                    <b>₹99</b>
-
-                    <button onclick="addToCart('Knight Rank', 99)">
-                        ADD
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- WARRIOR -->
-
-        <article class="product featured" data-category="rank" data-price="249">
-
-            <div class="product-image rank-red">
-
-                <div class="popular">
-                    <i class="fa-solid fa-fire"></i>
-                    POPULAR
-                </div>
-
-                <div class="product-icon">
-                    <i class="fa-solid fa-fire"></i>
-                </div>
-
-            </div>
-
-            <div class="product-body">
-
-                <small>RANK</small>
-
-                <h3>WARRIOR</h3>
-
-                <p>
-                    Powerful PvP perks for serious fighters.
-                </p>
-
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Warrior prefix</li>
-                    <li><i class="fa-solid fa-check"></i> Special kits</li>
-                    <li><i class="fa-solid fa-check"></i> More commands</li>
-                </ul>
-
-                <div class="product-bottom">
-
-                    <b>₹249</b>
-
-                    <button onclick="addToCart('Warrior Rank', 249)">
-                        ADD
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- CHAMPION -->
-
-        <article class="product" data-category="rank" data-price="499">
-
-            <div class="product-image rank-gold">
-
-                <div class="product-icon">
-                    <i class="fa-solid fa-crown"></i>
-                </div>
-
-                <span class="product-tag">
-                    ELITE
-                </span>
-
-            </div>
-
-            <div class="product-body">
-
-                <small>RANK</small>
-
-                <h3>CHAMPION</h3>
-
-                <p>
-                    Elite rank for players who want more power.
-                </p>
-
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Champion prefix</li>
-                    <li><i class="fa-solid fa-check"></i> Exclusive kits</li>
-                    <li><i class="fa-solid fa-check"></i> Premium commands</li>
-                </ul>
-
-                <div class="product-bottom">
-
-                    <b>₹499</b>
-
-                    <button onclick="addToCart('Champion Rank', 499)">
-                        ADD
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- LEGEND -->
-
-        <article class="product" data-category="rank" data-price="999">
-
-            <div class="product-image rank-purple">
-
-                <div class="product-icon">
-                    <i class="fa-solid fa-gem"></i>
-                </div>
-
-                <span class="product-tag">
-                    LEGENDARY
-                </span>
-
-            </div>
-
-            <div class="product-body">
-
-                <small>RANK</small>
-
-                <h3>LEGEND</h3>
-
-                <p>
-                    Ultimate rank packed with premium perks.
-                </p>
-
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Legend prefix</li>
-                    <li><i class="fa-solid fa-check"></i> All premium kits</li>
-                    <li><i class="fa-solid fa-check"></i> Exclusive cosmetics</li>
-                </ul>
-
-                <div class="product-bottom">
-
-                    <b>₹999</b>
-
-                    <button onclick="addToCart('Legend Rank', 999)">
-                        ADD
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- OVERLORD -->
-
-        <article class="product" data-category="rank" data-price="1499">
-
-            <div class="product-image rank-dark">
-
-                <div class="product-icon">
-                    <i class="fa-solid fa-skull"></i>
-                </div>
-
-                <span class="product-tag">
-                    ULTIMATE
-                </span>
-
-            </div>
-
-            <div class="product-body">
-
-                <small>RANK</small>
-
-                <h3>OVERLORD</h3>
-
-                <p>
-                    Rule the battlefield with the ultimate rank.
-                </p>
-
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Overlord prefix</li>
-                    <li><i class="fa-solid fa-check"></i> All kits</li>
-                    <li><i class="fa-solid fa-check"></i> Ultimate cosmetics</li>
-                </ul>
-
-                <div class="product-bottom">
-
-                    <b>₹1499</b>
-
-                    <button onclick="addToCart('Overlord Rank', 1499)">
-                        ADD
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- CRATE -->
-
-        <article class="product" data-category="crate" data-price="199">
-
-            <div class="product-image crate-red">
-
-                <div class="product-icon">
-                    <i class="fa-solid fa-box-open"></i>
-                </div>
-
-            </div>
-
-            <div class="product-body">
-
-                <small>CRATE</small>
-
-                <h3>WARRIOR CRATE</h3>
-
-                <p>
-                    Open the crate and discover powerful rewards.
-                </p>
-
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Random rewards</li>
-                    <li><i class="fa-solid fa-check"></i> Rare items</li>
-                    <li><i class="fa-solid fa-check"></i> PvP rewards</li>
-                </ul>
-
-                <div class="product-bottom">
-
-                    <b>₹199</b>
-
-                    <button onclick="addToCart('Warrior Crate', 199)">
-                        ADD
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- KEYS -->
-
-        <article class="product" data-category="key" data-price="49">
-
-            <div class="product-image key-purple">
-
-                <div class="product-icon">
-                    <i class="fa-solid fa-key"></i>
-                </div>
-
-            </div>
-
-            <div class="product-body">
-
-                <small>KEY</small>
-
-                <h3>LEGEND KEY</h3>
-
-                <p>
-                    Unlock legendary crate rewards.
-                </p>
-
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> 1 crate key</li>
-                    <li><i class="fa-solid fa-check"></i> Rare loot chance</li>
-                    <li><i class="fa-solid fa-check"></i> Instant delivery</li>
-                </ul>
-
-                <div class="product-bottom">
-
-                    <b>₹49</b>
-
-                    <button onclick="addToCart('Legend Key', 49)">
-                        ADD
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- COINS -->
-
-        <article class="product" data-category="coin" data-price="99">
-
-            <div class="product-image coin-gold">
-
-                <div class="product-icon">
-                    <i class="fa-solid fa-coins"></i>
-                </div>
-
-            </div>
-
-            <div class="product-body">
-
-                <small>COINS</small>
-
-                <h3>10,000 COINS</h3>
-
-                <p>
-                    Use coins for items, upgrades and server features.
-                </p>
-
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> 10,000 coins</li>
-                    <li><i class="fa-solid fa-check"></i> Instant credit</li>
-                    <li><i class="fa-solid fa-check"></i> No expiry</li>
-                </ul>
-
-                <div class="product-bottom">
-
-                    <b>₹99</b>
-
-                    <button onclick="addToCart('10,000 Coins', 99)">
-                        ADD
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- KIT -->
-
-        <article class="product" data-category="kit" data-price="149">
-
-            <div class="product-image kit-red">
-
-                <div class="product-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-
-            </div>
-
-            <div class="product-body">
-
-                <small>PVP KIT</small>
-
-                <h3>BERSERKER KIT</h3>
-
-                <p>
-                    Enter battle with a powerful PvP loadout.
-                </p>
-
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> PvP equipment</li>
-                    <li><i class="fa-solid fa-check"></i> Special items</li>
-                    <li><i class="fa-solid fa-check"></i> Battle ready</li>
-                </ul>
-
-                <div class="product-bottom">
-
-                    <b>₹149</b>
-
-                    <button onclick="addToCart('Berserker Kit', 149)">
-                        ADD
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- COSMETIC -->
-
-        <article class="product" data-category="cosmetic" data-price="79">
-
-            <div class="product-image cosmetic-pink">
-
-                <div class="product-icon">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                </div>
-
-            </div>
-
-            <div class="product-body">
-
-                <small>COSMETIC</small>
-
-                <h3>FLAME TRAIL</h3>
-
-                <p>
-                    Add a fiery effect to your Minecraft character.
-                </p>
-
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Flame effect</li>
-                    <li><i class="fa-solid fa-check"></i> Cosmetic only</li>
-                    <li><i class="fa-solid fa-check"></i> Permanent</li>
-                </ul>
-
-                <div class="product-bottom">
-
-                    <b>₹79</b>
-
-                    <button onclick="addToCart('Flame Trail', 79)">
-                        ADD
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- ================= FEATURES ================= -->
+<!-- SOCIAL -->
 
-<section id="about" class="features">
+<section id="social" class="discord">
 
-    <div class="section-heading center">
+    <div class="social-content">
 
-        <span>WHY NOVASMP?</span>
+        <div class="social-badge">
+            <i class="fa-solid fa-globe"></i>
+            NOVASMP COMMUNITY
+        </div>
 
         <h2>
-            BUILT FOR
-            <strong>PLAYERS</strong>
-        </h2>
-
-    </div>
-
-
-    <div class="feature-grid">
-
-        <div class="feature">
-
-            <i class="fa-solid fa-bolt"></i>
-
-            <h3>INSTANT DELIVERY</h3>
-
-            <p>
-                Your purchased items can be delivered directly
-                to your Minecraft account.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <i class="fa-solid fa-shield-halved"></i>
-
-            <h3>SECURE SHOP</h3>
-
-            <p>
-                Shop interface designed for a safe and simple
-                purchasing experience.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <i class="fa-solid fa-headset"></i>
-
-            <h3>PLAYER SUPPORT</h3>
-
-            <p>
-                Get help with purchases, ranks and server issues.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <i class="fa-solid fa-server"></i>
-
-            <h3>24/7 SERVER</h3>
-
-            <p>
-                NovaSMP is built for an always-on Minecraft
-                PvP experience.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= SOCIAL ================= -->
-
-<section class="community">
-
-    <div>
-
-        <span>FOLLOW NOVASMP</span>
-
-        <h2>
-            JOIN THE
-            <strong>COMMUNITY</strong>
+            JOIN THE <span>COMMUNITY</span>
         </h2>
 
         <p>
-            Follow us for updates, events and Minecraft PvP content.
+            Follow NovaSMP on social media and stay updated
+            with events, announcements and Minecraft content.
         </p>
+
+
+        <div class="social-buttons">
+
+
+            <!-- YOUTUBE -->
+
+            <a
+                href="https://youtube.com/@zenixplayzlive"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social youtube"
+            >
+
+                <i class="fa-brands fa-youtube"></i>
+
+                <span>
+
+                    <b>YouTube</b>
+
+                    <small>
+                        @zenixplayzlive
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://www.instagram.com/novasmp.official/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social instagram"
+            >
+
+                <i class="fa-brands fa-instagram"></i>
+
+                <span>
+
+                    <b>Instagram</b>
+
+                    <small>
+                        @novasmp.official
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <!-- DISCORD -->
+
+            <a
+                href="#"
+                class="social discord-social"
+            >
+
+                <i class="fa-brands fa-discord"></i>
+
+                <span>
+
+                    <b>Discord</b>
+
+                    <small>
+                        Join Community
+                    </small>
+
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+
+        <i class="fa-solid fa-khanda"></i>
+
+        NOVA <span>SMP</span>
 
     </div>
 
 
-    <div class="social-buttons">
+    <div class="footer-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#rules">Rules</a>
+
+        <a href="#ranks">Ranks</a>
+
+        <a href="#social">Social</a>
+
+    </div>
+
+
+    <div class="footer-social">
 
         <a
             href="https://youtube.com/@zenixplayzlive"
             target="_blank"
             rel="noopener noreferrer"
-            class="social youtube"
         >
             <i class="fa-brands fa-youtube"></i>
-
-            <div>
-                <b>YouTube</b>
-                <small>@zenixplayzlive</small>
-            </div>
         </a>
 
 
@@ -833,97 +623,28 @@
             href="https://www.instagram.com/novasmp.official/"
             target="_blank"
             rel="noopener noreferrer"
-            class="social instagram"
         >
             <i class="fa-brands fa-instagram"></i>
-
-            <div>
-                <b>Instagram</b>
-                <small>@novasmp.official</small>
-            </div>
         </a>
 
 
-        <a
-            href="#"
-            class="social discord"
-            onclick="discordComing(event)"
-        >
+        <a href="#">
             <i class="fa-brands fa-discord"></i>
         </a>
 
     </div>
 
-    <small>
+
+    <p>
         © 2026 NovaSMP. All Rights Reserved.
-    </small>
+    </p>
+
+    <p>
+        Made with <i class="fa-solid fa-heart"></i>
+        for Minecraft players.
+    </p>
 
 </footer>
-
-
-<!-- ================= CART ================= -->
-
-<div id="cartOverlay" class="cart-overlay"
-     onclick="closeCartOutside(event)">
-
-    <div class="cart-panel">
-
-        <div class="cart-header">
-
-            <h2>
-                <i class="fa-solid fa-cart-shopping"></i>
-                YOUR CART
-            </h2>
-
-            <button onclick="closeCart()">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-        </div>
-
-
-        <div id="cartItems" class="cart-items">
-
-            <div class="empty-cart">
-
-                <i class="fa-solid fa-cart-shopping"></i>
-
-                <h3>Your cart is empty</h3>
-
-                <p>
-                    Add some powerful PvP upgrades!
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="cart-footer">
-
-            <div class="total">
-
-                <span>TOTAL</span>
-
-                <strong id="cartTotal">
-                    ₹0
-                </strong>
-
-            </div>
-
-            <button onclick="checkout()" class="checkout-btn">
-
-                PROCEED TO CHECKOUT
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
 
 
 <script src="script.js"></script>
