@@ -2,7 +2,8 @@
 
 function copyIP() {
 
-    const ip = document.getElementById("serverIP").innerText;
+    const ip =
+        document.getElementById("serverIP").innerText;
 
     navigator.clipboard.writeText(ip)
         .then(function () {
@@ -23,7 +24,7 @@ function copyIP() {
 }
 
 
-/* ================= RANK BUTTONS ================= */
+/* ================= BUY RANK ================= */
 
 function buyRank(rankName) {
 
@@ -48,7 +49,10 @@ if (discordButton) {
         "click",
         function (event) {
 
-            if (discordButton.getAttribute("href") === "#") {
+            if (
+                discordButton.getAttribute("href")
+                === "#"
+            ) {
 
                 event.preventDefault();
 
@@ -67,10 +71,13 @@ if (discordButton) {
 
 /* ================= PAGE LOAD ================= */
 
-window.addEventListener("load", function () {
+window.addEventListener(
+    "load",
+    function () {
 
-    console.log(
-        "⚔️ NovaSMP website loaded successfully!"
-    );
+        console.log(
+            "⚔️ NovaSMP website loaded successfully!"
+        );
 
-});
+    }
+);
