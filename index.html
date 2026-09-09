@@ -1,653 +1,1410 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <title>NovaSMP | Minecraft PvP</title>
+html {
+    scroll-behavior: smooth;
+}
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+body {
+    background: #050507;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
-    <link rel="stylesheet" href="style.css">
-</head>
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-<body>
+button,
+select,
+input {
+    font: inherit;
+}
 
-<header class="navbar">
 
-    <div class="logo">
-        <i class="fa-solid fa-khanda"></i>
-        <span>NOVA</span> SMP
-    </div>
+/* TOP BAR */
 
-    <nav>
-        <a href="#home">HOME</a>
-        <a href="#about">ABOUT</a>
-        <a href="#rules">RULES</a>
-        <a href="#ranks">RANKS</a>
-        <a href="#store">STORE</a>
-        <a href="#social">SOCIAL</a>
-    </nav>
+.topbar {
+    min-height: 34px;
+    padding: 0 5%;
 
-    <a href="#home" class="play-btn">
-        PLAY NOW <i class="fa-solid fa-gamepad"></i>
-    </a>
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-</header>
+    background: #12051c;
 
+    border-bottom: 1px solid #2c123d;
 
-<!-- HERO -->
+    color: #c9a9da;
 
-<section id="home" class="hero">
+    font-size: 11px;
+    font-weight: 800;
 
-    <div class="hero-left">
+    letter-spacing: .5px;
+}
 
-        <div class="badge">
-            <i class="fa-solid fa-shield-halved"></i>
-            #1 PVP SMP NETWORK
-        </div>
+.topbar i {
+    color: #b938ff;
+}
 
-        <h1>
-            NOVA <span>SMP</span>
-        </h1>
+.topbar span:last-child i {
+    color: #00e878;
+    font-size: 7px;
+}
 
-        <h2>
-            <i class="fa-solid fa-bolt"></i>
-            FIGHT. SURVIVE. <span>DOMINATE.</span>
-        </h2>
 
-        <p>
-            A competitive Minecraft survival server where only
-            the strongest survive. Build, fight, raid and become
-            the legend of NovaSMP!
-        </p>
+/* NAVBAR */
 
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-        <div class="server-info">
+    min-height: 78px;
 
-            <div class="server-ip-area">
+    padding: 0 5%;
 
-                <small>SERVER IP</small>
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-                <div class="ip-box">
+    background: rgba(5, 5, 7, .96);
 
-                    <span id="serverIP">
-                        play.novasmp.sryze.cc
-                    </span>
+    border-bottom: 1px solid #211728;
 
-                    <button onclick="copyIP()" title="Copy IP">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
+    backdrop-filter: blur(15px);
+}
 
-                </div>
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
 
-            </div>
+.brand-icon {
+    width: 43px;
+    height: 43px;
 
+    display: grid;
+    place-items: center;
 
-            <div class="status">
+    border-radius: 9px;
 
-                <small>STATUS</small>
+    background: linear-gradient(135deg, #a52cff, #48106c);
 
-                <strong>
-                    <i class="fa-solid fa-circle"></i>
-                    ONLINE
-                </strong>
+    box-shadow: 0 0 25px rgba(166, 43, 255, .25);
 
-                <span>
-                    142 / 500 PLAYERS
-                </span>
+    font-size: 20px;
+}
 
-            </div>
+.brand b {
+    display: block;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
 
-        </div>
+.brand b span {
+    color: #ad36ff;
+}
 
+.brand small {
+    display: block;
+    margin-top: 2px;
 
-        <div class="hero-buttons">
+    color: #777;
 
-            <button
-                class="join-btn"
-                onclick="copyIP()"
-            >
-                <i class="fa-solid fa-gamepad"></i>
-                JOIN SERVER
-            </button>
+    font-size: 8px;
+    letter-spacing: 3px;
+}
 
+nav {
+    display: flex;
+    gap: 27px;
+}
 
-            <a
-                href="https://youtube.com/@zenixplayzlive"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="youtube-btn"
-            >
-                <i class="fa-brands fa-youtube"></i>
-                YOUTUBE
-            </a>
+nav a {
+    color: #aaa;
 
-        </div>
+    font-size: 11px;
+    font-weight: 900;
 
-    </div>
+    transition: .25s;
+}
 
+nav a:hover {
+    color: #b438ff;
+}
 
-    <!-- VIDEO -->
+.nav-actions {
+    display: flex;
+    gap: 9px;
+}
 
-    <div class="video-area">
+.icon-btn,
+.cart-btn {
+    position: relative;
 
-        <div class="video-frame">
+    width: 42px;
+    height: 42px;
 
-            <video
-                controls
-                autoplay
-                muted
-                loop
-                playsinline
-            >
+    border: 1px solid #30243a;
+    border-radius: 8px;
 
-                <source
-                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                    type="video/mp4"
-                >
+    background: #0d0b10;
 
-                Your browser does not support video.
+    color: #ccc;
 
-            </video>
+    cursor: pointer;
 
-        </div>
+    transition: .25s;
+}
 
+.icon-btn:hover,
+.cart-btn:hover {
+    color: #fff;
+    border-color: #a42fff;
+}
 
-        <div class="sale">
+.cart-btn span {
+    position: absolute;
 
-            <i class="fa-solid fa-crown"></i>
+    top: -7px;
+    right: -7px;
 
-            <b>50% OFF</b>
-            SUMMER SALE ON ALL RANKS!
+    min-width: 19px;
+    height: 19px;
 
-        </div>
+    display: grid;
+    place-items: center;
 
-    </div>
+    border-radius: 50%;
 
-</section>
+    background: #a72fff;
 
+    color: #fff;
 
-<!-- ABOUT -->
+    font-size: 10px;
+    font-weight: bold;
+}
 
-<section id="about" class="section">
 
-    <h2>
-        <i class="fa-solid fa-swords"></i>
-        ABOUT <span>NOVASMP</span>
-    </h2>
+/* SEARCH */
 
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
 
-    <div class="cards">
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
 
-        <div class="card">
+    padding-top: 130px;
 
-            <div class="icon">
-                <i class="fa-solid fa-swords"></i>
-            </div>
+    background: rgba(0,0,0,.86);
 
-            <h3>
-                EPIC PVP
-            </h3>
+    backdrop-filter: blur(10px);
+}
 
-            <p>
-                Fight players and prove that you are
-                the strongest warrior.
-            </p>
+.search-overlay.show {
+    display: flex;
+}
 
-        </div>
+.search-inner {
+    position: relative;
 
+    width: min(700px, 90%);
+}
 
-        <div class="card">
+.search-inner input {
+    width: 100%;
 
-            <div class="icon">
-                <i class="fa-solid fa-earth-americas"></i>
-            </div>
+    padding: 20px 55px 20px 22px;
 
-            <h3>
-                SURVIVAL
-            </h3>
+    outline: none;
 
-            <p>
-                Build your base, collect resources and
-                survive with your friends.
-            </p>
+    border: 1px solid #7e27b9;
+    border-radius: 10px;
 
-        </div>
+    background: #100c14;
 
+    color: white;
 
-        <div class="card">
+    font-size: 16px;
+}
 
-            <div class="icon">
-                <i class="fa-solid fa-trophy"></i>
-            </div>
+.search-inner > i {
+    position: absolute;
 
-            <h3>
-                EVENTS
-            </h3>
+    right: 22px;
+    top: 22px;
 
-            <p>
-                Participate in exciting events and
-                win amazing rewards.
-            </p>
+    color: #a936ff;
+}
 
-        </div>
+.close-search {
+    position: absolute;
 
-    </div>
+    right: -10px;
+    top: -55px;
 
-</section>
+    width: 38px;
+    height: 38px;
 
+    border: 1px solid #392441;
+    border-radius: 50%;
 
-<!-- RULES -->
+    background: #110d15;
 
-<section id="rules" class="section dark-section">
+    color: white;
 
-    <h2>
-        <i class="fa-solid fa-scroll"></i>
-        SERVER <span>RULES</span>
-    </h2>
+    cursor: pointer;
+}
 
 
-    <div class="rules">
+/* HERO */
 
-        <div>
-            <i class="fa-solid fa-shield-halved"></i>
-            No hacking or cheating.
-        </div>
+.shop-hero {
+    min-height: 650px;
 
-        <div>
-            <i class="fa-solid fa-ban"></i>
-            No exploiting bugs.
-        </div>
+    padding: 80px 7%;
 
-        <div>
-            <i class="fa-solid fa-handshake"></i>
-            Respect all players.
-        </div>
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
 
-        <div>
-            <i class="fa-solid fa-bullhorn"></i>
-            No spam or advertising.
-        </div>
+    align-items: center;
 
-        <div>
-            <i class="fa-solid fa-skull-crossbones"></i>
-            No unfair gameplay.
-        </div>
+    background:
+        linear-gradient(90deg,
+            #050507 5%,
+            rgba(7,3,11,.94) 45%,
+            rgba(20,5,31,.72)),
+        url("https://images.unsplash.com/photo-1603481546238-487240415921?auto=format&fit=crop&w=2200&q=85");
 
-        <div>
-            <i class="fa-solid fa-heart"></i>
-            Have fun and enjoy NovaSMP!
-        </div>
+    background-size: cover;
+    background-position: center;
 
-    </div>
+    overflow: hidden;
+}
 
-</section>
+.hero-content {
+    max-width: 700px;
+}
 
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 
-<!-- RANKS -->
+    padding: 9px 14px;
 
-<section id="ranks" class="section">
+    border: 1px solid #7130a0;
+    border-radius: 5px;
 
-    <h2>
-        <i class="fa-solid fa-ranking-star"></i>
-        PVP <span>RANKS</span>
-    </h2>
+    background: rgba(113, 25, 165, .12);
 
+    color: #c66aff;
 
-    <div class="rank-container">
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
 
+.shop-hero h1 {
+    margin-top: 20px;
 
-        <div class="rank knight">
+    font-size: clamp(55px, 7vw, 105px);
 
-            <div class="rank-icon">
-                <i class="fa-solid fa-shield-halved"></i>
-            </div>
+    line-height: .9;
 
-            <h3>KNIGHT</h3>
+    font-weight: 1000;
 
-            <p>Essential perks</p>
+    letter-spacing: -5px;
 
-            <strong>₹99</strong>
+    text-shadow: 0 0 35px rgba(169, 45, 255, .2);
+}
 
-            <button onclick="buyRank('Knight')">
-                BUY NOW
-            </button>
+.shop-hero h1 span {
+    display: block;
 
-        </div>
+    color: #a933ff;
 
+    text-shadow: 0 0 30px rgba(169, 45, 255, .5);
+}
 
-        <div class="rank warrior">
+.hero-content > p {
+    max-width: 600px;
 
-            <div class="rank-icon">
-                <i class="fa-solid fa-fire"></i>
-            </div>
+    margin-top: 25px;
 
-            <h3>WARRIOR</h3>
+    color: #9b979f;
 
-            <p>Powerful perks</p>
+    line-height: 1.7;
 
-            <strong>₹249</strong>
+    font-size: 15px;
+}
 
-            <button onclick="buyRank('Warrior')">
-                BUY NOW
-            </button>
+.hero-buttons {
+    display: flex;
+    gap: 12px;
 
-        </div>
+    margin-top: 30px;
+}
 
+.primary-btn,
+.secondary-btn {
+    padding: 15px 21px;
 
-        <div class="rank champion">
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-            <div class="rank-icon">
-                <i class="fa-solid fa-crown"></i>
-            </div>
+    gap: 9px;
 
-            <h3>CHAMPION</h3>
+    border-radius: 7px;
 
-            <p>Champion rewards</p>
+    font-size: 12px;
+    font-weight: 900;
 
-            <strong>₹499</strong>
+    cursor: pointer;
 
-            <button onclick="buyRank('Champion')">
-                BUY NOW
-            </button>
+    transition: .3s;
+}
 
-        </div>
+.primary-btn {
+    background: linear-gradient(135deg, #a52cff, #7114b2);
 
+    box-shadow: 0 0 30px rgba(164, 43, 255, .22);
+}
 
-        <div class="rank legend">
+.secondary-btn {
+    border: 1px solid #3a2b45;
 
-            <div class="rank-icon">
-                <i class="fa-solid fa-gem"></i>
-            </div>
+    background: #0d0b10;
 
-            <h3>LEGEND</h3>
+    color: #ddd;
+}
 
-            <p>Ultimate experience</p>
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-3px);
+}
 
-            <strong>₹999</strong>
+.hero-stats {
+    display: flex;
+    gap: 35px;
 
-            <button onclick="buyRank('Legend')">
-                BUY NOW
-            </button>
+    margin-top: 40px;
+}
 
-        </div>
+.hero-stats div {
+    padding-left: 15px;
 
+    border-left: 2px solid #8f2bd0;
+}
 
-        <div class="rank over">
+.hero-stats b {
+    display: block;
 
-            <div class="rank-icon">
-                <i class="fa-solid fa-skull"></i>
-            </div>
+    font-size: 22px;
+}
 
-            <h3>OVERLORD</h3>
+.hero-stats small {
+    color: #777;
 
-            <p>Rule the server</p>
+    font-size: 9px;
+    letter-spacing: 2px;
+}
 
-            <strong>₹1499</strong>
 
-            <button onclick="buyRank('Overlord')">
-                BUY NOW
-            </button>
+/* HERO ART */
 
-        </div>
+.hero-art {
+    position: relative;
 
-    </div>
+    min-height: 470px;
 
-</section>
+    display: grid;
+    place-items: center;
+}
 
+.glow {
+    position: absolute;
 
-<!-- STORE -->
+    width: 380px;
+    height: 380px;
 
-<section id="store" class="section dark-section">
+    border-radius: 50%;
 
-    <h2>
-        <i class="fa-solid fa-cart-shopping"></i>
-        NOVASMP <span>STORE</span>
-    </h2>
+    background: #8f20d6;
 
-    <p class="center-text">
-        Get exclusive ranks, cosmetics and special perks.
-    </p>
+    filter: blur(120px);
 
-    <a href="#ranks" class="big-btn">
-        VIEW RANKS
-        <i class="fa-solid fa-cart-shopping"></i>
-    </a>
+    opacity: .2;
+}
 
-</section>
+.sword {
+    position: relative;
+    z-index: 2;
 
+    width: 230px;
+    height: 230px;
 
-<!-- STATS -->
+    display: grid;
+    place-items: center;
 
-<section class="section">
+    border-radius: 50%;
 
-    <h2>
-        <i class="fa-solid fa-chart-simple"></i>
-        SERVER <span>STATS</span>
-    </h2>
+    background:
+        radial-gradient(circle,
+            rgba(181,57,255,.28),
+            transparent 65%);
 
+    color: #dca2ff;
 
-    <div class="stats">
+    font-size: 150px;
 
-        <div class="stat">
+    transform: rotate(-20deg);
 
-            <strong>142</strong>
+    filter:
+        drop-shadow(0 0 25px #a12de8);
+}
 
-            <span>
-                PLAYERS ONLINE
-            </span>
+.floating-card {
+    position: absolute;
+    z-index: 3;
 
-        </div>
+    min-width: 155px;
 
+    padding: 13px;
 
-        <div class="stat">
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    column-gap: 9px;
 
-            <strong>1.21.x</strong>
+    background: rgba(14,10,18,.92);
 
-            <span>
-                SERVER VERSION
-            </span>
+    border: 1px solid #492b5c;
 
-        </div>
+    border-radius: 9px;
 
+    box-shadow: 0 15px 40px rgba(0,0,0,.45);
 
-        <div class="stat">
+    backdrop-filter: blur(10px);
+}
 
-            <strong>99.9%</strong>
+.floating-card i {
+    grid-row: span 2;
 
-            <span>
-                UPTIME
-            </span>
+    display: grid;
+    place-items: center;
 
-        </div>
+    color: #c35cff;
 
+    font-size: 22px;
+}
 
-        <div class="stat">
+.floating-card b {
+    font-size: 11px;
+}
 
-            <strong>12,548</strong>
+.floating-card small {
+    color: #777;
+    font-size: 8px;
+}
 
-            <span>
-                TOTAL JOINS
-            </span>
+.card-one {
+    top: 70px;
+    right: 20px;
+}
 
-        </div>
+.card-two {
+    bottom: 75px;
+    left: 20px;
+}
 
-    </div>
 
-</section>
+/* CATEGORIES */
 
+.categories {
+    padding: 20px 6%;
 
-<!-- SOCIAL -->
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 
-<section id="social" class="discord">
+    background: #09070c;
 
-    <div class="social-content">
+    border-top: 1px solid #211528;
+    border-bottom: 1px solid #211528;
+}
 
-        <div class="social-badge">
-            <i class="fa-solid fa-globe"></i>
-            NOVASMP COMMUNITY
-        </div>
+.category {
+    padding: 12px 17px;
 
-        <h2>
-            JOIN THE <span>COMMUNITY</span>
-        </h2>
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-        <p>
-            Follow NovaSMP on social media and stay updated
-            with events, announcements and Minecraft content.
-        </p>
+    border: 1px solid #2d2334;
+    border-radius: 6px;
 
+    background: #0d0b10;
 
-        <div class="social-buttons">
+    color: #888;
 
+    font-size: 10px;
+    font-weight: 900;
 
-            <!-- YOUTUBE -->
+    cursor: pointer;
 
-            <a
-                href="https://youtube.com/@zenixplayzlive"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social youtube"
-            >
+    transition: .25s;
+}
 
-                <i class="fa-brands fa-youtube"></i>
+.category:hover,
+.category.active {
+    background: #7c20ae;
 
-                <span>
+    border-color: #b33cff;
 
-                    <b>YouTube</b>
+    color: #fff;
+}
 
-                    <small>
-                        @zenixplayzlive
-                    </small>
 
-                </span>
+/* SHOP */
 
-            </a>
+.shop-section {
+    padding: 90px 6%;
+}
 
+.section-heading {
+    max-width: 1250px;
 
-            <!-- INSTAGRAM -->
+    margin: 0 auto 40px;
 
-            <a
-                href="https://www.instagram.com/novasmp.official/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social instagram"
-            >
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+}
 
-                <i class="fa-brands fa-instagram"></i>
+.section-heading > div:first-child > span,
+.community span,
+.center > span {
+    color: #a938e8;
 
-                <span>
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
 
-                    <b>Instagram</b>
+.section-heading h2 {
+    margin-top: 8px;
 
-                    <small>
-                        @novasmp.official
-                    </small>
+    font-size: 38px;
+}
 
-                </span>
+.section-heading strong {
+    color: #a938e8;
+}
 
-            </a>
+.sort-box select {
+    padding: 12px 35px 12px 14px;
 
+    border: 1px solid #302539;
+    border-radius: 6px;
 
-            <!-- DISCORD -->
+    background: #0d0b10;
 
-            <a
-                href="#"
-                class="social discord-social"
-            >
+    color: #bbb;
 
-                <i class="fa-brands fa-discord"></i>
+    outline: none;
+}
 
-                <span>
+.product-grid {
+    max-width: 1250px;
 
-                    <b>Discord</b>
+    margin: auto;
 
-                    <small>
-                        Join Community
-                    </small>
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
-                </span>
+    gap: 20px;
+}
 
-            </a>
+.product {
+    overflow: hidden;
 
-        </div>
+    background: #0d0b10;
 
-    </div>
+    border: 1px solid #261c2e;
 
-</section>
+    border-radius: 10px;
 
+    transition: .3s;
+}
 
-<!-- FOOTER -->
+.product:hover {
+    transform: translateY(-7px);
 
-<footer>
+    border-color: #9631cf;
 
-    <div class="footer-logo">
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.4),
+        0 0 30px rgba(151, 45, 209, .1);
+}
 
-        <i class="fa-solid fa-khanda"></i>
+.product.hidden {
+    display: none;
+}
 
-        NOVA <span>SMP</span>
+.product-image {
+    position: relative;
 
-    </div>
+    height: 190px;
 
+    display: grid;
+    place-items: center;
 
-    <div class="footer-links">
+    overflow: hidden;
+}
 
-        <a href="#home">Home</a>
+.product-image::after {
+    content: "";
 
-        <a href="#about">About</a>
+    position: absolute;
+    inset: 0;
 
-        <a href="#rules">Rules</a>
+    background:
+        linear-gradient(
+            135deg,
+            transparent,
+            rgba(255,255,255,.04)
+        );
+}
 
-        <a href="#ranks">Ranks</a>
+.product-icon {
+    position: relative;
+    z-index: 2;
 
-        <a href="#social">Social</a>
+    font-size: 65px;
 
-    </div>
+    filter: drop-shadow(0 0 18px currentColor);
+}
 
+.rank-blue {
+    background: radial-gradient(circle, #164e85, #080c13);
+    color: #46aaff;
+}
 
-    <div class="footer-social">
+.rank-red {
+    background: radial-gradient(circle, #8a251f, #120708);
+    color: #ff604e;
+}
 
-        <a
-            href="https://youtube.com/@zenixplayzlive"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-brands fa-youtube"></i>
-        </a>
+.rank-gold {
+    background: radial-gradient(circle, #87651b, #120f07);
+    color: #ffd65a;
+}
 
+.rank-purple {
+    background: radial-gradient(circle, #642083, #100712);
+    color: #d869ff;
+}
 
-        <a
-            href="https://www.instagram.com/novasmp.official/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-brands fa-instagram"></i>
-        </a>
+.rank-dark {
+    background: radial-gradient(circle, #45214d, #08070a);
+    color: #f04cff;
+}
 
+.crate-red {
+    background: radial-gradient(circle, #72251d, #110707);
+    color: #ff654e;
+}
 
-        <a href="#">
-            <i class="fa-brands fa-discord"></i>
-        </a>
+.key-purple {
+    background: radial-gradient(circle, #4b1d6c, #0c0710);
+    color: #d069ff;
+}
 
-    </div>
+.coin-gold {
+    background: radial-gradient(circle, #765b13, #100d05);
+    color: #ffd33d;
+}
 
+.kit-red {
+    background: radial-gradient(circle, #591c1c, #100607);
+    color: #ff4c4c;
+}
 
-    <p>
-        © 2026 NovaSMP. All Rights Reserved.
-    </p>
+.cosmetic-pink {
+    background: radial-gradient(circle, #712157, #10070d);
+    color: #ff5bd5;
+}
 
-    <p>
-        Made with <i class="fa-solid fa-heart"></i>
-        for Minecraft players.
-    </p>
+.product-tag,
+.popular {
+    position: absolute;
+    z-index: 4;
 
-</footer>
+    top: 12px;
+    left: 12px;
 
+    padding: 6px 8px;
 
-<script src="script.js"></script>
+    border-radius: 4px;
 
-</body>
-</html>
+    background: rgba(0,0,0,.45);
+
+    color: #ddd;
+
+    font-size: 8px;
+    font-weight: 900;
+}
+
+.popular {
+    background: #d12d25;
+    color: white;
+}
+
+.product-body {
+    padding: 20px;
+}
+
+.product-body > small {
+    color: #777;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.product-body h3 {
+    margin: 6px 0 8px;
+
+    font-size: 19px;
+}
+
+.product-body p {
+    min-height: 45px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+.product-body ul {
+    list-style: none;
+
+    margin: 15px 0;
+}
+
+.product-body li {
+    margin: 7px 0;
+
+    color: #aaa;
+
+    font-size: 10px;
+}
+
+.product-body li i {
+    margin-right: 5px;
+
+    color: #a938e8;
+}
+
+.product-bottom {
+    padding-top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid #211927;
+}
+
+.product-bottom b {
+    font-size: 22px;
+}
+
+.product-bottom button {
+    padding: 10px 13px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #8d28bd;
+
+    color: white;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.product-bottom button:hover {
+    background: #b037ec;
+}
+
+
+/* FEATURES */
+
+.features {
+    padding: 100px 6%;
+
+    background: #09070c;
+
+    border-top: 1px solid #211528;
+}
+
+.center {
+    display: block;
+    text-align: center;
+}
+
+.center h2 {
+    margin-top: 8px;
+
+    font-size: 38px;
+}
+
+.center strong {
+    color: #a938e8;
+}
+
+.feature-grid {
+    max-width: 1100px;
+
+    margin: 50px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.feature {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border: 1px solid #271d2e;
+    border-radius: 9px;
+
+    background: #0d0b10;
+
+    transition: .3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+
+    border-color: #8f2bc0;
+}
+
+.feature > i {
+    margin-bottom: 18px;
+
+    color: #b63bfa;
+
+    font-size: 28px;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+
+    font-size: 12px;
+}
+
+.feature p {
+    color: #777;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+/* COMMUNITY */
+
+.community {
+    padding: 80px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    background:
+        radial-gradient(
+            circle at right,
+            rgba(143,31,194,.18),
+            transparent 45%
+        ),
+        #060508;
+
+    border-top: 1px solid #25172c;
+}
+
+.community h2 {
+    margin-top: 9px;
+
+    font-size: 35px;
+}
+
+.community h2 strong {
+    color: #a938e8;
+}
+
+.community p {
+    margin-top: 12px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social {
+    min-width: 175px;
+
+    padding: 13px 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    border-radius: 8px;
+
+    transition: .3s;
+}
+
+.social:hover {
+    transform: translateY(-4px);
+}
+
+.social > i {
+    font-size: 24px;
+}
+
+.social div {
+    display: flex;
+    flex-direction: column;
+}
+
+.social b {
+    font-size: 11px;
+}
+
+.social small {
+    margin-top: 3px;
+
+    color: rgba(255,255,255,.6);
+
+    font-size: 8px;
+}
+
+.youtube {
+    background: #e60000;
+}
+
+.instagram {
+    background:
+        linear-gradient(135deg,
+            #7b2cbf,
+            #e1306c,
+            #f77737);
+}
+
+.discord {
+    background: #5865f2;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 50px 20px;
+
+    text-align: center;
+
+    background: #030304;
+
+    color: #666;
+}
+
+.footer-brand {
+    color: white;
+
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.footer-brand i,
+.footer-brand span {
+    color: #a938e8;
+}
+
+footer p {
+    margin: 12px 0 20px;
+
+    font-size: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    font-size: 10px;
+}
+
+.footer-links a:hover {
+    color: #b438ff;
+}
+
+.footer-social {
+    margin: 25px 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.footer-social a {
+    color: #777;
+
+    font-size: 20px;
+
+    transition: .25s;
+}
+
+.footer-social a:hover {
+    color: #b438ff;
+}
+
+
+/* CART */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+
+    display: none;
+
+    justify-content: flex-end;
+
+    background: rgba(0,0,0,.7);
+
+    backdrop-filter: blur(5px);
+}
+
+.cart-overlay.show {
+    display: flex;
+}
+
+.cart-panel {
+    width: min(430px, 100%);
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #0b090e;
+
+    border-left: 1px solid #34223e;
+
+    box-shadow: -20px 0 70px rgba(0,0,0,.6);
+}
+
+.cart-header {
+    padding: 23px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #24192b;
+}
+
+.cart-header h2 {
+    font-size: 17px;
+}
+
+.cart-header h2 i {
+    color: #ac35ed;
+}
+
+.cart-header button {
+    width: 35px;
+    height: 35px;
+
+    border: 1px solid #34243d;
+    border-radius: 6px;
+
+    background: #121016;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+.empty-cart {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: #555;
+}
+
+.empty-cart > i {
+    margin-bottom: 15px;
+
+    color: #7c268e;
+
+    font-size: 45px;
+}
+
+.empty-cart h3 {
+    color: #aaa;
+}
+
+.empty-cart p {
+    margin-top: 7px;
+
+    font-size: 11px;
+}
+
+.cart-item {
+    margin-bottom: 10px;
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    border: 1px solid #2a1d31;
+    border-radius: 7px;
+
+    background: #100d13;
+}
+
+.cart-item-info b {
+    display: block;
+
+    font-size: 12px;
+}
+
+.cart-item-info span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #a938e8;
+
+    font-size: 11px;
+}
+
+.remove-item {
+    border: none;
+
+    background: transparent;
+
+    color: #ff5555;
+
+    cursor: pointer;
+}
+
+.cart-footer {
+    padding: 20px;
+
+    border-top: 1px solid #24192b;
+}
+
+.total {
+    margin-bottom: 15px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.total span {
+    color: #777;
+
+    font-size: 11px;
+}
+
+.total strong {
+    font-size: 23px;
+}
+
+.checkout-btn {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: linear-gradient(135deg, #a52cff, #7114b2);
+
+    color: white;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+    nav {
+        display: none;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shop-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-art {
+        display: none;
+    }
+}
+
+
+@media (max-width: 750px) {
+
+    .topbar span:last-child {
+        display: none;
+    }
+
+    .navbar {
+        min-height: 65px;
+    }
+
+    .brand b {
+        font-size: 17px;
+    }
+
+    .brand-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .shop-hero {
+        padding: 70px 5%;
+    }
+
+    .shop-hero h1 {
+        font-size: 58px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .community {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .categories {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .category {
+        white-space: nowrap;
+    }
+
+    .shop-hero h1 {
+        font-size: 48px;
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+
+    .social {
+        width: 100%;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+    }
+}
