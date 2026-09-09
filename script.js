@@ -1,29 +1,76 @@
+/* ================= COPY SERVER IP ================= */
+
 function copyIP() {
 
     const ip = document.getElementById("serverIP").innerText;
 
     navigator.clipboard.writeText(ip)
-        .then(() => {
+        .then(function () {
 
-            alert("✅ Server IP copied!\n\n" + ip);
+            alert(
+                "✅ Server IP copied!\n\n" +
+                ip
+            );
 
         })
-        .catch(() => {
+        .catch(function () {
 
-            alert("❌ IP copy nahi ho paya.");
+            alert(
+                "❌ IP copy nahi ho paya."
+            );
 
         });
 }
 
 
-// Rank buttons
+/* ================= RANK BUTTONS ================= */
 
-document.querySelectorAll(".rank button").forEach(button => {
+function buyRank(rankName) {
 
-    button.addEventListener("click", () => {
+    alert(
+        "🛒 " +
+        rankName +
+        " Rank selected!\n\n" +
+        "NovaSMP Store payment system coming soon."
+    );
 
-        alert("🛒 Store coming soon!\nNovaSMP");
+}
 
-    });
+
+/* ================= DISCORD ================= */
+
+const discordButton =
+    document.querySelector(".discord-social");
+
+if (discordButton) {
+
+    discordButton.addEventListener(
+        "click",
+        function (event) {
+
+            if (discordButton.getAttribute("href") === "#") {
+
+                event.preventDefault();
+
+                alert(
+                    "💬 NovaSMP Discord invite link\n" +
+                    "will be added soon!"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ================= PAGE LOAD ================= */
+
+window.addEventListener("load", function () {
+
+    console.log(
+        "⚔️ NovaSMP website loaded successfully!"
+    );
 
 });
